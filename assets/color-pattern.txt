@@ -1,0 +1,27 @@
+Here’s a blue color palette that works well for a professional, service-oriented site — balanced for trust, clarity, and modern appeal.
+I kept it WCAG-friendly for accessibility, with a mix of light, mid, and dark tones plus accent options.
+
+Primary Blues
+Purpose	Hex	Notes
+Primary Brand Blue	#1E5BB8	Main brand color — strong but not overwhelming, works for buttons and headers
+Dark Blue	#153E75	For navigation bars, footers, or text over light backgrounds
+Light Blue	#E5F1FB	Background blocks, subtle section separation
+Mid Blue	#3D8AF7	Secondary buttons, hover states
+Highlight Blue	#5AB0FF	Accent lines, icons, callouts
+
+Neutral Support
+Purpose	Hex	Notes
+Off-White	#F9FAFB	Page background
+Cool Gray	#6B7280	Secondary text
+Deep Navy	#0A1F44	High-contrast text or hero overlays
+
+Example Usage
+Primary CTA Button: #1E5BB8 background, white text, hover #153E75
+
+Secondary CTA Button: #3D8AF7 background, white text, hover #1E5BB8
+
+Section Backgrounds: Alternate #F9FAFB and #E5F1FB for visual rhythm
+
+Icons / Highlights: Use #5AB0FF to draw subtle attention
+
+If you’d like, I can also create a Figma-ready palette sheet with these colors and accessibility contrast ratios so your dev/design team can drop them right into the design system. Would you like me to do that?
