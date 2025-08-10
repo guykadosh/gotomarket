@@ -64,16 +64,21 @@
 }
 
 :root {
-	--background: #f9fafb;
-	--foreground: #0a1f44;
+	--background: #F3F4FA;
+	--foreground: #1F1B3A;
 
-	/* GTM Brand Colors */
-	--gtm-primary: #1e5bb8;
-	--gtm-primary-dark: #153e75;
-	--gtm-primary-light: #e5f1fb;
-	--gtm-secondary: #3d8af7;
-	--gtm-accent: #5ab0ff;
-	--gtm-text-dark: #0a1f44;
+	/* New GTM Brand Colors - Vivid Purple Palette */
+	--gtm-primary: #6C63FF;        /* Vivid periwinkle-purple for main CTAs */
+	--gtm-secondary: #5A4FCF;      /* Deeper purple for headers/hover states */
+	--gtm-accent-blue: #4C6FFF;    /* Strong blue accent for links/secondary CTAs */
+	--gtm-accent-lavender: #8A7FFF; /* Soft lavender for highlights/backgrounds */
+	--gtm-dark: #1F1B3A;          /* Almost-black indigo for text */
+	--gtm-light: #F3F4FA;         /* Gentle off-white for backgrounds */
+	
+	/* Legacy support - mapped to new colors */
+	--gtm-primary-dark: #5A4FCF;
+	--gtm-primary-light: rgba(108, 99, 255, 0.1);
+	--gtm-text-dark: #1F1B3A;
 	--gtm-text-medium: #6b7280;
 }
 
@@ -257,15 +262,14 @@ html {
 
 /* Hero Background - Mobile First */
 .hero-background {
-	background: linear-gradient(135deg, rgba(30, 91, 184, 0.8) 0%, rgba(61, 138, 247, 0.7) 100%);
+	background: linear-gradient(135deg, #6C63FF 0%, #5A4FCF 50%, #4C6FFF 100%);
+	position: relative;
+	overflow: hidden;
 }
 
-/* Hero Background - Desktop with Image */
+/* Hero Background - Desktop (no image, just gradient) */
 @media (min-width: 768px) {
 	.hero-background {
-		background: linear-gradient(135deg, rgba(30, 91, 184, 0.6) 0%, rgba(61, 138, 247, 0.5) 100%), url('/images/hero/hero-background.jpg');
-		background-size: cover;
-		background-position: center center;
-		background-repeat: no-repeat;
+		background: linear-gradient(135deg, #6C63FF 0%, #5A4FCF 50%, #4C6FFF 100%);
 	}
 }

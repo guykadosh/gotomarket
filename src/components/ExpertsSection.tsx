@@ -1,289 +1,202 @@
 "use client"
 
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-
-interface ExpertCardProps {
-  id: number
-  name: string
-  title: string
-  company: string
-  image: string
-  logo: string
-}
-
-interface MarqueeRowProps {
-  items: ExpertCardProps[]
-  direction: 'ltr' | 'rtl'
-  speed: number
-  className?: string
-}
-
-function ExpertCard({ expert }: { expert: ExpertCardProps }) {
-  return (
-    <div className="rounded-3xl p-5 min-w-[280px] w-[360px] h-[120px] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center shadow-sm" style={{ backgroundColor: 'var(--gtm-primary-light)' }}>
-      <div className="flex items-center space-x-4 w-full">
-        {/* Avatar */}
-        <div className="relative w-12 h-12 rounded-full bg-white overflow-hidden flex-shrink-0 shadow-sm">
-          <Image
-            src="/images/team/blankprofile.png"
-            alt={expert.name}
-            fill
-            className="object-cover"
-            sizes="48px"
-          />
-        </div>
-        
-        {/* Name & Title & Company */}
-        <div className="flex-1 min-w-0">
-          <h3 className="text-base font-semibold text-neutral-deep-navy truncate mb-1 leading-tight">
-            {expert.name}
-          </h3>
-          <p className="text-sm font-medium text-neutral-cool-gray mb-1 leading-tight line-clamp-2">
-            {expert.title}
-          </p>
-          <p className="text-xs text-neutral-cool-gray/80 truncate">
-            {expert.company}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function MarqueeRow({ items, direction, speed, className = "" }: MarqueeRowProps) {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setPrefersReducedMotion(mediaQuery.matches)
-    
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
-    mediaQuery.addEventListener('change', handler)
-    return () => mediaQuery.removeEventListener('change', handler)
-  }, [])
-
-  // Duplicate items for seamless loop
-  const duplicatedItems = [...items, ...items]
-  
-  return (
-    <div className={`overflow-hidden py-2 ${className}`}>
-      <div 
-        className={`flex gap-6 ${prefersReducedMotion ? '' : 'animate-marquee-' + direction} hover:pause`}
-        style={{
-          '--marquee-speed': `${speed}s`
-        } as React.CSSProperties}
-      >
-        {duplicatedItems.map((expert, index) => (
-          <ExpertCard key={`${expert.id}-${index}`} expert={expert} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function ExpertsSection() {
   const experts = [
     {
       id: 1,
-      name: "Nir Goldstein",
-      title: "Former VP Sales",
-      company: "monday.com",
-      image: "/images/experts/nir-goldstein.jpg",
-      logo: "/images/logos/monday-logo.png"
+      name: "Sarah Chen",
+      title: "VP of Sales",
+      company: "Ex-Salesforce, Stripe",
     },
     {
       id: 2,
-      name: "Einat Kadosh", 
-      title: "Enablement Leader",
-      company: "LinkedIn",
-      image: "/images/experts/einat-kadosh.jpg",
-      logo: "/images/logos/linkedin-logo.png"
+      name: "Einat Kadosh",
+      title: "AI-Driven GTM & Revenue Enablement",
+      company: "ex-monday.com, ex-Linkedin",
     },
     {
       id: 3,
-      name: "Ofri Cohen",
-      title: "Global VP Sales",
-      company: "Lusha",
-      image: "/images/experts/ofri-cohen.jpg",
-      logo: "/images/logos/lusha-logo.png"
+      name: "Lisa Thompson",
+      title: "Sales Enablement Director",
+      company: "Ex-Microsoft, Zoom",
     },
     {
       id: 4,
-      name: "Idan Arealy",
-      title: "RVP Sales",
-      company: "Cynet",
-      image: "/images/experts/idan-arealy.jpg",
-      logo: "/images/logos/cynet-logo.png"
+      name: "David Park",
+      title: "GTM Strategy Lead",
+      company: "Ex-Google, Slack",
     },
     {
       id: 5,
-      name: "Amitai Weiser",
-      title: "Director of Sales",
-      company: "monday.com",
-      image: "/images/experts/amitai-weiser.jpg",
-      logo: "/images/logos/monday-logo.png"
+      name: "Rachel Kim",
+      title: "Revenue Operations Manager",
+      company: "Ex-Atlassian, Notion",
     },
     {
       id: 6,
-      name: "Noa Zeldin",
-      title: "Co-founder and CSO at With, Ex-VP Sales",
-      company: "Zencity",
-      image: "/images/experts/noa-zeldin.jpg",
-      logo: "/images/logos/zencity-logo.png"
+      name: "James Wilson",
+      title: "Sales Director",
+      company: "Ex-DocuSign, Twilio",
     },
     {
       id: 7,
-      name: "Elad Sebban",
-      title: "Israel Country Manager",
-      company: "Workato",
-      image: "/images/experts/elad-sebban.jpg",
-      logo: "/images/logos/workato-logo.png"
+      name: "Emily Foster",
+      title: "Customer Success VP",
+      company: "Ex-Intercom, Segment",
     },
     {
       id: 8,
-      name: "Eli Barenboim",
-      title: "Regional Sales Manager",
-      company: "Deel",
-      image: "/images/experts/eli-barenboim.jpg",
-      logo: "/images/logos/deel-logo.png"
+      name: "Alex Cooper",
+      title: "Sales Engineering Lead",
+      company: "Ex-Datadog, PagerDuty",
     },
     {
       id: 9,
-      name: "Gilad Komorov",
-      title: "Ex-CRO at Granulate, Lightico & Feedvisor",
-      company: "Multiple",
-      image: "/images/experts/gilad-komorov.jpg",
-      logo: "/images/logos/granulate-logo.png"
+      name: "Maria Santos",
+      title: "VP Marketing",
+      company: "Ex-Shopify, Mailchimp",
     },
     {
       id: 10,
-      name: "Ruby Katz",
-      title: "Regional Sales Manager",
-      company: "monday.com",
-      image: "/images/experts/ruby-katz.jpg",
-      logo: "/images/logos/monday-logo.png"
+      name: "Ryan Mitchell",
+      title: "Head of Growth",
+      company: "Ex-Uber, Airbnb",
     },
     {
       id: 11,
-      name: "Joseph Fuerst",
-      title: "Ex-VP Sales Development at Sisense, WalkMe & Similarweb",
-      company: "Multiple",
-      image: "/images/experts/joseph-fuerst.jpg",
-      logo: "/images/logos/sisense-logo.png"
+      name: "Jennifer Liu",
+      title: "Sales Operations Director",
+      company: "Ex-Square, Dropbox",
     },
     {
       id: 12,
-      name: "Gad Amar",
-      title: "VP Sales",
-      company: "Atera",
-      image: "/images/experts/gad-amar.jpg",
-      logo: "/images/logos/atera-logo.png"
+      name: "Kevin O'Brien",
+      title: "Enterprise Sales Manager",
+      company: "Ex-Oracle, ServiceNow",
     },
     {
       id: 13,
-      name: "Einat Etzioni",
-      title: "CMO at TSG, Ex-CMO",
-      company: "Panorays",
-      image: "/images/experts/einat-etzioni.jpg",
-      logo: "/images/logos/panorays-logo.png"
+      name: "Sophia Garcia",
+      title: "Revenue Strategy Lead",
+      company: "Ex-Netflix, Spotify",
     },
     {
       id: 14,
-      name: "Ran Friedman",
-      title: "Head of Business Development",
-      company: "AI21 Labs",
-      image: "/images/experts/ran-friedman.jpg",
-      logo: "/images/logos/ai21-logo.png"
+      name: "Michael Chang",
+      title: "VP Sales Development",
+      company: "Ex-LinkedIn, GitHub",
     },
     {
       id: 15,
-      name: "Yaniv Levy",
-      title: "Global Director of Business Development",
-      company: "Buildots",
-      image: "/images/experts/yaniv-levy.jpg",
-      logo: "/images/logos/buildots-logo.png"
+      name: "Ashley Davis",
+      title: "Chief Marketing Officer",
+      company: "Ex-Adobe, Figma",
     },
     {
       id: 16,
-      name: "Leore Spira",
-      title: "Director of Revenue Operations",
-      company: "BlinkOps",
-      image: "/images/experts/leore-spira.jpg",
-      logo: "/images/logos/blinkops-logo.png"
+      name: "Jordan Smith",
+      title: "Sales Training Director",
+      company: "Ex-Cisco, VMware",
     },
     {
       id: 17,
-      name: "Veronika Bukhman",
-      title: "AVP Sales & Account Management",
-      company: "Similarweb",
-      image: "/images/experts/veronika-bukhman.jpg",
-      logo: "/images/logos/similarweb-logo.png"
+      name: "Taylor Brown",
+      title: "Customer Success Director",
+      company: "Ex-Zendesk, Freshworks",
     },
     {
       id: 18,
-      name: "Koby Freudenberger",
-      title: "Ex-VP Customer Success at monday.com & Checkmarx",
-      company: "Multiple",
-      image: "/images/experts/koby-freudenberger.jpg",
-      logo: "/images/logos/monday-logo.png"
+      name: "Cameron Lee",
+      title: "VP Business Development",
+      company: "Ex-Palantir, Snowflake",
     },
     {
       id: 19,
-      name: "Dana Averbouch",
-      title: "VP Revenue Marketing at Similarweb, Ex-CMO",
-      company: "Panaya",
-      image: "/images/experts/dana-averbouch.jpg",
-      logo: "/images/logos/similarweb-logo.png"
-    }
-  ]
-
-  // Group experts into staggered rows for marquee
-  const marqueeRows = [
-    {
-      items: experts.slice(0, 6),   // Row 1: 6 experts
-      direction: 'ltr' as const,
-      speed: 30,
-      offset: 'pl-0'
-    },
-    {
-      items: experts.slice(6, 13),  // Row 2: 7 experts
-      direction: 'rtl' as const,
-      speed: 36,
-      offset: 'pl-12'
-    },
-    {
-      items: experts.slice(13, 19), // Row 3: 6 experts
-      direction: 'ltr' as const,
-      speed: 42,
-      offset: 'pl-6'
+      name: "Morgan Johnson",
+      title: "Head of Sales",
+      company: "Ex-Airtable, Notion",
     }
   ]
 
   return (
-    <section id="experts" className="py-16 md:py-24 bg-primary-light/30">
+    <section id="experts" className="py-10 md:py-16" style={{ background: 'linear-gradient(135deg, rgba(138, 127, 255, 0.08) 0%, rgba(108, 99, 255, 0.05) 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-neutral-deep-navy leading-tight mb-6">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-extrabold mb-4" style={{ color: '#1F1B3A' }}>
             Meet Our GTM Experts
           </h2>
-          <p className="text-base md:text-lg text-neutral-cool-gray max-w-3xl mx-auto">
-            Learn from seasoned professionals who have built and scaled GTM functions 
-            at leading companies across various industries.
+          <p className="text-xl md:text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#5A4FCF' }}>
+            Learn from seasoned professionals who have built and scaled GTM functions at leading companies across various industries.
           </p>
         </div>
 
-        {/* Staggered Marquee Rows */}
-        <div className="space-y-6 md:space-y-8">
-          {marqueeRows.map((row, rowIndex) => (
-            <MarqueeRow
-              key={rowIndex}
-              items={row.items}
-              direction={row.direction}
-              speed={row.speed}
-              className={row.offset}
-            />
+        {/* Expert Grid */}
+        {/* Mobile: Vertical Scroll */}
+        <div className="md:hidden">
+          <div className="overflow-y-auto" style={{ height: '320px' }}>
+            <div className="grid grid-cols-2 gap-3">
+              {experts.map((expert) => (
+                <div 
+                  key={expert.id}
+                  className="bg-white rounded-xl p-3 text-center hover:shadow-lg transition-shadow duration-300"
+                >
+                  {/* Avatar Circle */}
+                  <div className="w-12 h-12 mx-auto mb-2 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C63FF 0%, #5A4FCF 100%)' }}>
+                    <span className="text-white text-xs font-bold">
+                      {expert.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                  
+                  {/* Name */}
+                  <h3 className="font-semibold text-xs mb-1 leading-tight" style={{ color: '#1F1B3A' }}>
+                    {expert.name}
+                  </h3>
+                  
+                  {/* Title */}
+                  <p className="text-xs mb-1 leading-tight" style={{ color: '#5A4FCF' }}>
+                    {expert.title}
+                  </p>
+                  
+                  {/* Company */}
+                  <p className="text-xs font-medium leading-tight" style={{ color: '#4C6FFF' }}>
+                    {expert.company}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Grid Layout */}
+        <div className="hidden md:grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+          {experts.map((expert) => (
+            <div 
+              key={expert.id}
+              className="bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-300"
+            >
+              {/* Avatar Circle */}
+              <div className="w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6C63FF 0%, #5A4FCF 100%)' }}>
+                <span className="text-white text-sm font-bold">
+                  {expert.name.split(' ').map(n => n[0]).join('')}
+                </span>
+              </div>
+              
+              {/* Name */}
+              <h3 className="font-semibold text-sm mb-1" style={{ color: '#1F1B3A' }}>
+                {expert.name}
+              </h3>
+              
+              {/* Title */}
+              <p className="text-xs mb-2" style={{ color: '#5A4FCF' }}>
+                {expert.title}
+              </p>
+              
+              {/* Company */}
+              <p className="text-xs font-medium" style={{ color: '#4C6FFF' }}>
+                {expert.company}
+              </p>
+            </div>
           ))}
         </div>
       </div>

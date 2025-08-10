@@ -36,12 +36,40 @@ export default function Header() {
     <header 
       className={`${isScrolled ? 'fixed' : 'absolute'} top-0 left-0 right-0 z-50 transition-all duration-300`}
       style={isScrolled ? {
-        backgroundColor: 'rgba(30, 91, 184, 0.85)',
+        backgroundColor: 'rgba(108, 99, 255, 0.85)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
       } : {}}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Decorative Shapes - Desktop */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)' }}
+        ></div>
+        <div 
+          className="absolute -top-6 left-1/4 w-20 h-20 rounded-full opacity-25"
+          style={{ background: 'radial-gradient(circle, #8A7FFF 0%, transparent 70%)' }}
+        ></div>
+        <div 
+          className="absolute -bottom-8 left-16 w-24 h-24 rounded-full opacity-20"
+          style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)' }}
+        ></div>
+      </div>
+
+      {/* Decorative Shapes - Mobile */}
+      <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute -top-8 -right-8 w-20 h-20 rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)' }}
+        ></div>
+        <div 
+          className="absolute -bottom-6 left-8 w-16 h-16 rounded-full opacity-25"
+          style={{ background: 'radial-gradient(circle, #8A7FFF 0%, transparent 70%)' }}
+        ></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className={`flex justify-between items-center transition-all duration-300 ${shouldBeCompact ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
           <div className="flex items-center">
@@ -50,11 +78,13 @@ export default function Header() {
                 shouldBeCompact ? 'w-10 h-10' : 'w-12 h-12'
               }`}
               style={isScrolled ? {
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(10px)'
+                backgroundColor: 'rgba(138, 127, 255, 0.3)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
               } : {
-                backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                backdropFilter: 'blur(10px)'
+                backgroundColor: 'rgba(138, 127, 255, 0.25)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.15)'
               }}
             >
               <span className={`text-white font-bold ${
@@ -64,7 +94,7 @@ export default function Header() {
             <span className={`ml-3 font-semibold text-white ${
               shouldBeCompact ? 'text-lg' : 'text-xl'
             }`}>
-              GTM Academy
+              GTM Accelerator
             </span>
           </div>
 
@@ -106,14 +136,20 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div 
-            className="md:hidden py-4 space-y-4" 
+            className="md:hidden py-4 space-y-4 relative" 
             style={{
-              backgroundColor: 'rgba(30, 91, 184, 0.95)', 
+              backgroundColor: 'rgba(108, 99, 255, 0.95)', 
               backdropFilter: 'blur(10px)', 
               borderRadius: '12px', 
-              marginTop: '8px'
+              marginTop: '8px',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
             }}
           >
+            {/* Mobile menu decorative shape */}
+            <div 
+              className="absolute -top-2 -right-2 w-12 h-12 rounded-full opacity-20 pointer-events-none"
+              style={{ background: 'radial-gradient(circle, #8A7FFF 0%, transparent 70%)' }}
+            ></div>
             {navItems.map((item) => (
               <a
                 key={item.href}

@@ -134,38 +134,47 @@ export default function ProgramsSection() {
   const getColorClasses = (color: string, popular: boolean) => {
     const colors = {
       blue: {
-        border: popular ? 'border-primary-highlight' : 'border-gray-200',
-        badge: 'bg-blue-100 text-blue-700',
-        button: 'bg-primary hover:bg-primary-dark text-white'
+        border: popular ? 'border-2' : 'border-gray-200',
+        borderColor: popular ? '#6C63FF' : '#e5e7eb',
+        badge: 'bg-blue-100',
+        badgeTextColor: '#4C6FFF',
+        button: 'text-white',
+        buttonStyle: { backgroundColor: '#6C63FF', borderColor: '#5A4FCF' }
       },
       purple: {
-        border: popular ? 'border-primary-highlight' : 'border-gray-200', 
-        badge: 'bg-purple-100 text-purple-700',
-        button: 'bg-primary-mid hover:bg-primary text-white'
+        border: popular ? 'border-2' : 'border-gray-200',
+        borderColor: popular ? '#5A4FCF' : '#e5e7eb', 
+        badge: 'bg-purple-100',
+        badgeTextColor: '#5A4FCF',
+        button: 'text-white',
+        buttonStyle: { backgroundColor: '#5A4FCF', borderColor: '#6C63FF' }
       },
       green: {
-        border: popular ? 'border-primary-highlight' : 'border-gray-200',
-        badge: 'bg-green-100 text-green-700', 
-        button: 'bg-primary hover:bg-primary-dark text-white'
+        border: popular ? 'border-2' : 'border-gray-200',
+        borderColor: popular ? '#4C6FFF' : '#e5e7eb',
+        badge: 'bg-green-100',
+        badgeTextColor: '#4C6FFF', 
+        button: 'text-white',
+        buttonStyle: { backgroundColor: '#4C6FFF', borderColor: '#5A4FCF' }
       }
     }
     return colors[color as keyof typeof colors]
   }
 
   return (
-    <section id="programs" className="py-12 md:py-20 bg-white">
+    <section id="programs" className="py-12 md:py-20" style={{ backgroundColor: '#F3F4FA' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-deep-navy mb-4 md:mb-6 px-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 px-4" style={{ color: '#1F1B3A' }}>
             Programs at a Glance
           </h2>
-          <p className="text-base md:text-lg text-neutral-cool-gray max-w-4xl mx-auto mb-6 md:mb-8 px-4">
+          <p className="text-base md:text-lg max-w-4xl mx-auto mb-6 md:mb-8 px-4" style={{ color: '#5A4FCF' }}>
             We offer three tailored program layers—so you can select the one that fits 
             your company&apos;s current growth stage and needs.
           </p>
           
           {/* Program Benefits */}
-          <div className="max-w-6xl mx-auto mb-8 md:mb-12">
+          <div className="max-w-6xl mx-auto mb-8 md:mb-12 hidden md:block">
             <p className="text-base md:text-lg font-semibold text-center mb-6 md:mb-8 text-neutral-deep-navy">
               Each layer combines:
             </p>

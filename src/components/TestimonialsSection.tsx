@@ -20,44 +20,61 @@ export default function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-white">
+    <section id="testimonials" className="py-16 md:py-24" style={{ backgroundColor: 'rgba(138, 127, 255, 0.1)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-neutral-deep-navy mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6" style={{ color: '#1F1B3A' }}>
             What Founders & Teams Say
           </h2>
         </div>
 
         {/* Quick Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gradient-to-br from-primary-light/30 to-neutral-off-white rounded-xl p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
-              <blockquote className="mb-4 md:mb-6 text-base md:text-lg font-medium leading-relaxed text-neutral-deep-navy">
+            <div key={index} className="bg-white rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+              <blockquote className="mb-3 md:mb-4 text-sm md:text-base font-medium leading-relaxed" style={{ color: '#1F1B3A' }}>
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
-              <div className="text-sm">
-                <div className="font-semibold text-primary">{testimonial.author}</div>
-                <div className="text-neutral-cool-gray">{testimonial.company}</div>
+              <div className="text-xs md:text-sm">
+                <div className="font-semibold" style={{ color: '#6C63FF' }}>{testimonial.author}</div>
+                <div style={{ color: '#5A4FCF' }}>{testimonial.company}</div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Logo Strip Placeholder */}
+        {/* Logo Strip */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-primary-light/20 to-neutral-off-white rounded-xl p-8 md:p-12">
-            <p className="text-neutral-cool-gray mb-6 font-medium">
+          <div className="bg-white rounded-xl p-6 md:p-8 border border-gray-100">
+            <p className="mb-4 md:mb-6 font-medium" style={{ color: '#5A4FCF' }}>
               Trusted by leading startups and scale-ups
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 items-center opacity-60">
+            {/* Mobile Layout - Logo left of text */}
+            <div className="md:hidden space-y-3">
+              {[
+                'Company A', 'Company B', 'Company C', 'Company D', 'Company E', 'Company F'
+              ].map((company, index) => (
+                <div key={index} className="flex items-center justify-start bg-gray-50 rounded-lg p-3">
+                  <div className="w-10 h-8 rounded flex items-center justify-center mr-3 flex-shrink-0" style={{ backgroundColor: 'rgba(108, 99, 255, 0.1)' }}>
+                    <span className="text-xs font-medium" style={{ color: '#6C63FF' }}>
+                      {company.charAt(company.length - 1)}
+                    </span>
+                  </div>
+                  <span className="text-sm font-medium" style={{ color: '#1F1B3A' }}>{company}</span>
+                </div>
+              ))}
+            </div>
+            {/* Desktop Layout - Original grid */}
+            <div className="hidden md:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 items-center opacity-70">
               {[
                 'Company A', 'Company B', 'Company C', 'Company D', 'Company E', 'Company F'
               ].map((company, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 md:w-20 h-12 md:h-16 rounded-lg flex items-center justify-center mx-auto mb-2 bg-white/50">
-                    <span className="text-xs font-medium text-neutral-cool-gray">{company}</span>
+                  <div className="w-12 md:w-16 h-10 md:h-12 rounded-lg flex items-center justify-center mx-auto mb-2" style={{ backgroundColor: 'rgba(108, 99, 255, 0.1)' }}>
+                    <span className="text-xs font-medium" style={{ color: '#6C63FF' }}>{company.charAt(company.length - 1)}</span>
                   </div>
+                  <span className="text-xs" style={{ color: '#5A4FCF' }}>{company}</span>
                 </div>
               ))}
             </div>

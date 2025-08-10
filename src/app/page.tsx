@@ -17,12 +17,12 @@ export default function Home() {
       <Header />
       <HeroSection />
       <FoundationSection />
-      <WhyDifferentSection />
-      <GTMSupportSection />
-      <ProgramsSection />
-      <TestimonialsSection />
-      <DetailedTestimonialsSection />
       <ExpertsSection />
+      <WhyDifferentSection />
+      {/* <GTMSupportSection /> */}
+      <ProgramsSection />
+      {/* <TestimonialsSection /> */}
+      <DetailedTestimonialsSection />
       <FinalCTA />
     </main>
   )
