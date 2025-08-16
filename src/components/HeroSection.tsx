@@ -12,37 +12,156 @@ export default function HeroSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Desktop Shapes */}
         <div className="hidden md:block">
-          <div 
-            className="absolute top-20 right-24 w-64 h-64 rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, #8A7FFF 0%, transparent 70%)' }}
-          ></div>
-          <div 
-            className="absolute bottom-32 left-16 w-48 h-48 rounded-full opacity-25"
-            style={{ background: 'radial-gradient(circle, #4C6FFF 0%, transparent 70%)' }}
-          ></div>
-          <div 
-            className="absolute top-1/3 left-1/4 w-32 h-32 rounded-full opacity-15"
-            style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)' }}
-          ></div>
-          <div 
-            className="absolute bottom-20 right-1/3 w-40 h-40 rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)' }}
-          ></div>
+          {/* Organic Blob Shape - Top Right */}
+          <div className="absolute top-20 right-24 w-72 h-72 opacity-30">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#1F1B3A',
+                borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
+              }}
+            ></div>
+          </div>
+          
+          {/* Rounded Rectangle with Curves - Bottom Left */}
+          <div className="absolute bottom-28 left-16 w-56 h-40 opacity-35">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#0d0026',
+                borderRadius: '25px 50px 25px 50px'
+              }}
+            ></div>
+          </div>
+          
+          {/* Kidney/Bean Shape - Top Left */}
+          <div className="absolute top-32 left-20 w-48 h-32 opacity-25">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#5A4FCF',
+                borderRadius: '100px 20px 100px 20px'
+              }}
+            ></div>
+          </div>
+          
+          {/* Rounded Oval with Indent - Center Right */}
+          <div className="absolute top-1/2 right-32 w-40 h-56 opacity-30">
+            <div 
+              className="w-full h-full relative"
+              style={{ 
+                backgroundColor: '#4C6FFF',
+                borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
+              }}
+            >
+              <div 
+                className="absolute top-4 right-4 w-8 h-8"
+                style={{ 
+                  backgroundColor: '#6C63FF',
+                  borderRadius: '50%'
+                }}
+              ></div>
+            </div>
+          </div>
+          
+          {/* Pebble Shape - Bottom Right */}
+          <div className="absolute bottom-40 right-1/4 w-36 h-24 opacity-35">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#6C63FF',
+                borderRadius: '50px 80px 30px 60px'
+              }}
+            ></div>
+          </div>
+          
+          {/* Cloud-like Shape - Middle Left */}
+          <div className="absolute top-1/3 left-8 w-32 h-20 opacity-25">
+            <div 
+              className="w-full h-full relative"
+              style={{ 
+                backgroundColor: '#8A7FFF',
+                borderRadius: '20px 40px 60px 20px'
+              }}
+            >
+              <div 
+                className="absolute -top-2 left-6 w-12 h-12"
+                style={{ 
+                  backgroundColor: '#8A7FFF',
+                  borderRadius: '50%'
+                }}
+              ></div>
+              <div 
+                className="absolute -top-1 right-8 w-8 h-8"
+                style={{ 
+                  backgroundColor: '#8A7FFF',
+                  borderRadius: '50%'
+                }}
+              ></div>
+            </div>
+          </div>
+          
+          {/* Teardrop Shape - Bottom Center */}
+          <div className="absolute bottom-1/4 left-1/2 w-20 h-32 opacity-30 transform rotate-12">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#5A4FCF',
+                borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'
+              }}
+            ></div>
+          </div>
         </div>
         
         {/* Mobile Shapes */}
         <div className="md:hidden">
+          {/* Organic Blob - Top Right */}
+          <div className="absolute top-12 right-4 w-40 h-40 opacity-35">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#1F1B3A',
+                borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
+              }}
+            ></div>
+          </div>
+          
+          {/* Rounded Rectangle - Bottom Left */}
+          <div className="absolute bottom-16 left-2 w-32 h-24 opacity-30">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#0d0026',
+                borderRadius: '20px 40px 20px 40px'
+              }}
+            ></div>
+          </div>
+          
+          {/* Kidney Shape - Center */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-16 opacity-25">
+            <div 
+              className="w-full h-full"
+              style={{ 
+                backgroundColor: '#5A4FCF',
+                borderRadius: '50px 10px 50px 10px'
+              }}
+            ></div>
+          </div>
+          
+          {/* Small Pebble Shapes */}
           <div 
-            className="absolute top-16 right-8 w-32 h-32 rounded-full opacity-25"
-            style={{ background: 'radial-gradient(circle, #8A7FFF 0%, transparent 70%)' }}
+            className="absolute top-1/4 right-12 w-12 h-8 opacity-40"
+            style={{ 
+              backgroundColor: '#4C6FFF',
+              borderRadius: '20px 30px 15px 25px'
+            }}
           ></div>
           <div 
-            className="absolute bottom-20 left-4 w-24 h-24 rounded-full opacity-30"
-            style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)' }}
-          ></div>
-          <div 
-            className="absolute top-1/2 right-16 w-20 h-20 rounded-full opacity-20"
-            style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)' }}
+            className="absolute bottom-1/4 left-8 w-10 h-14 opacity-35"
+            style={{ 
+              backgroundColor: '#8A7FFF',
+              borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%'
+            }}
           ></div>
         </div>
       </div>

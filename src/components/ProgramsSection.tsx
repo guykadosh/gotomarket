@@ -166,11 +166,10 @@ export default function ProgramsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 px-4" style={{ color: '#1F1B3A' }}>
-            Programs at a Glance
+            Three Courses, One GTM System — Tailored to Your Startup Stage
           </h2>
           <p className="text-base md:text-lg max-w-4xl mx-auto mb-6 md:mb-8 px-4" style={{ color: '#5A4FCF' }}>
-            We offer three tailored program layers—so you can select the one that fits 
-            your company&apos;s current growth stage and needs.
+            Select the course that matches where you are today, and equip your team with the skills, processes, and resources to scale faster.
           </p>
           
           {/* Program Benefits */}
@@ -213,54 +212,73 @@ export default function ProgramsSection() {
           {programs.map((program) => {
             const colorClasses = getColorClasses(program.color, program.popular)
             
+            // Define background colors for each card using theme colors
+            const getCardStyle = (color: string, popular: boolean) => {
+              if (popular) {
+                return { background: 'linear-gradient(135deg, #6C63FF 0%, #5A4FCF 100%)' } // Theme purple gradient for popular
+              }
+              switch (color) {
+                case 'blue':
+                  return { background: 'linear-gradient(135deg, rgba(108, 99, 255, 0.08) 0%, rgba(76, 111, 255, 0.12) 100%)' }
+                case 'purple':
+                  return { background: 'linear-gradient(135deg, rgba(108, 99, 255, 0.08) 0%, rgba(90, 79, 207, 0.12) 100%)' }
+                case 'green':
+                  return { background: 'linear-gradient(135deg, rgba(76, 111, 255, 0.08) 0%, rgba(138, 127, 255, 0.12) 100%)' }
+                default:
+                  return {}
+              }
+            }
+            
+            const cardStyle = getCardStyle(program.color, program.popular)
+            const isPopular = program.popular
+            
             return (
               <div 
                 key={program.id}
-                className={`relative bg-white rounded-2xl border-2 ${colorClasses.border} overflow-hidden hover:border-primary-light transition-colors duration-300 h-full flex flex-col`}
-              >
-                {program.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-primary-highlight text-white text-center py-2 text-sm font-medium">
-                    Most Popular
-                  </div>
-                )}
-                
-                <div className={`p-4 md:p-6 xl:p-8 ${program.popular ? 'pt-8 md:pt-10 xl:pt-12' : ''} flex flex-col h-full`}>
+                className={`relative rounded-2xl overflow-hidden hover:border-primary-light transition-colors duration-300 h-full flex flex-col`}
+                style={cardStyle}
+              > 
+                <div className={`p-4 md:p-6 xl:p-8 flex flex-col h-full`}>
                   {/* Header */}
                   <div className="text-center mb-4 md:mb-6">
-                    <program.icon className="w-10 md:w-12 h-10 md:h-12 mx-auto mb-3 md:mb-4 text-primary" />
-                    <h3 className="text-lg md:text-xl xl:text-2xl font-bold text-neutral-deep-navy mb-2">
+                    <program.icon className={`w-10 md:w-12 h-10 md:h-12 mx-auto mb-3 md:mb-4 ${isPopular ? 'text-white' : 'text-primary'}`} />
+                    <h3 className={`text-lg md:text-xl xl:text-2xl font-bold mb-2 ${isPopular ? 'text-white' : 'text-neutral-deep-navy'}`}>
                       {program.title}
                     </h3>
-                    <div className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium ${colorClasses.badge} mb-3 md:mb-4`}>
+                    <div className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4 ${colorClasses.badge}`}>
                       {program.subtitle}
                     </div>
-                    <p className="text-neutral-cool-gray text-xs md:text-sm xl:text-base leading-relaxed px-2">
+                    <p className={`text-xs md:text-sm xl:text-base leading-relaxed px-2 ${isPopular ? 'text-white text-opacity-90' : 'text-neutral-cool-gray'}`}>
                       {program.description}
                     </p>
                   </div>
 
                   {/* Who it's for */}
                   <div className="mb-4 md:mb-6 flex-grow">
-                    <h4 className="font-semibold text-neutral-deep-navy mb-2 text-sm md:text-base text-center">Who Is It For</h4>
-                    <p className="text-xs md:text-sm text-neutral-cool-gray text-center">{program.whoFor}</p>
+                    <h4 className={`font-semibold mb-2 text-sm md:text-base text-center ${isPopular ? 'text-white' : 'text-neutral-deep-navy'}`}>Who Is It For</h4>
+                    <p className={`text-xs md:text-sm text-center ${isPopular ? 'text-white text-opacity-90' : 'text-neutral-cool-gray'}`}>{program.whoFor}</p>
                   </div>
 
                   {/* Session Info - Fixed Height */}
                   <div className="mb-4 md:mb-6 space-y-2 h-12 flex flex-col justify-center">
                     <div className="flex justify-between text-xs md:text-sm">
-                      <span className="text-neutral-cool-gray">Training:</span>
-                      <span className="font-medium text-neutral-deep-navy">{program.hours}</span>
+                      <span className={isPopular ? 'text-white text-opacity-80' : 'text-neutral-cool-gray'}>Training:</span>
+                      <span className={`font-medium ${isPopular ? 'text-white' : 'text-neutral-deep-navy'}`}>{program.hours}</span>
                     </div>
                     <div className="flex justify-between text-xs md:text-sm">
-                      <span className="text-neutral-cool-gray">Mentoring:</span>
-                      <span className="font-medium text-neutral-deep-navy">{program.mentoring}</span>
+                      <span className={isPopular ? 'text-white text-opacity-80' : 'text-neutral-cool-gray'}>Mentoring:</span>
+                      <span className={`font-medium ${isPopular ? 'text-white' : 'text-neutral-deep-navy'}`}>{program.mentoring}</span>
                     </div>
                   </div>
 
                   {/* CTA Button - Fixed at bottom */}
                   <div className="mt-auto">
                     <Button 
-                      className={`w-full ${colorClasses.button} text-sm md:text-base transition-colors duration-200`}
+                      className={`w-full text-sm md:text-base transition-colors duration-200 ${
+                        isPopular 
+                          ? 'bg-white text-purple-600 hover:bg-gray-100' 
+                          : `${colorClasses.button} text-white`
+                      }`}
                       size="lg"
                     >
                       Get Started
@@ -373,178 +391,117 @@ export default function ProgramsSection() {
                 <thead>
                   <tr className="border-b border-gray-200">
                     <th className="text-left p-4 md:p-6 font-semibold text-neutral-deep-navy bg-gray-50">
-                      Program Details
+                      Layer
                     </th>
-                    <th className="text-center p-4 md:p-6 font-semibold text-neutral-deep-navy bg-blue-50">
-                      Layer 1: Sales Foundation
+                    <th className="text-center p-4 md:p-6 font-semibold text-neutral-deep-navy bg-gray-50">
+                      Focus
                     </th>
-                    <th className="text-center p-4 md:p-6 font-semibold text-neutral-deep-navy bg-purple-50">
-                      Layer 2: Pipeline & Growth Execution
+                    <th className="text-center p-4 md:p-6 font-semibold text-neutral-deep-navy bg-gray-50">
+                      What You&apos;ll Master
                     </th>
-                    <th className="text-center p-4 md:p-6 font-semibold text-neutral-deep-navy bg-green-50">
-                      Layer 3: End to End GTM Scaling Program
-                    </th>
+                    {/* <th className="text-center p-4 md:p-6 font-semibold text-neutral-deep-navy bg-gray-50">
+                      Price
+                    </th> */}
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-gray-100">
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      Description
+                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-blue-50">
+                      <div className="flex items-center">
+                        <span className="text-blue-600 mr-2">🔵</span>
+                        <div>
+                          <div className="font-bold">Layer 1</div>
+                          <div className="text-sm">Sales Execution (TOF → BOF)</div>
+                        </div>
+                      </div>
                     </td>
                     <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
-                      Master the fundamentals of selling: from defining your value to running strong discovery, demos, and closing conversations.
+                      Master the full sales funnel from lead gen to close<br/>
+                      <strong>For founders leading sales</strong>
                     </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
-                      Build strong top-of-funnel pipeline engines, marketing alignment, and team capabilities to support scale.
+                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
+                      <div className="space-y-1">
+                        <div><strong>6×2 = 12 hrs</strong></div>
+                        <div>2×2 - UVP+ICP+Value Selling</div>
+                        <div>2×2 - Discovery</div>
+                        <div>1 - Demo</div>
+                        <div>2×2 - Negotiation & Objection Handling</div>
+                        <div>2×2 - Sales Process (milestones and strategic steps)</div>
+                        <div>1 - How to master every meeting</div>
+                        <div className="font-medium text-primary mt-2">2×2 practical sessions</div>
+                        <div className="font-medium text-primary">1 mentoring session</div>
+                        <div className="font-medium text-primary">Offline practice</div>
+                      </div>
                     </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
-                      Align your entire organization for GTM scale — across leadership, RevOps, CS, marketing, and sales — with advanced processes, systems, and growth motion.
-                    </td>
+                    {/* <td className="p-4 md:p-6 text-sm text-center font-semibold text-neutral-deep-navy">
+                      $2,700 per person<br/>
+                      <span className="text-xs font-normal">+ $800 per additional participant</span>
+                    </td> */}
                   </tr>
                   <tr className="border-b border-gray-100">
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      Who Is It For
+                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-purple-50">
+                      <div className="flex items-center">
+                        <span className="text-purple-600 mr-2">🟣</span>
+                        <div>
+                          <div className="font-bold">Layer 2</div>
+                          <div className="text-sm">Pipeline & Growth Execution</div>
+                        </div>
+                      </div>
                     </td>
                     <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
-                      Early-stage founders leading sales themselves
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
-                      Founders with a small GTM or sales team beginning to scale
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
-                      Growth-stage startups with dedicated sales, marketing, and CS teams ready to operationalize and scale their GTM machine
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      Live Training Hours
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray text-center">
-                      <span className="font-semibold">14 hrs</span><br/>
-                      6 sessions (2 hrs each) + 2 practicals
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray text-center">
-                      <span className="font-semibold">12 hrs</span><br/>
-                      6 sessions (2 hrs each) + 2 practical sessions
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray text-center">
-                      <span className="font-semibold">12 hrs</span><br/>
-                      6 sessions (2 hrs each)
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      1:1 Mentoring
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-center font-semibold text-neutral-deep-navy">
-                      1 session
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-center font-semibold text-neutral-deep-navy">
-                      3 sessions
-                    </td>
-                    <td className="p-4 md:p-6 text-sm text-center font-semibold text-neutral-deep-navy">
-                      10 sessions
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      Syllabus/Agenda
+                      Align your GTM motion across sales, marketing & CS<br/>
+                      <strong>For founder + small sales team</strong>
                     </td>
                     <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
                       <div className="space-y-1">
-                        <div>1. Define Your ICP, UVP & Value Story</div>
-                        <div>2. Mastering Discovery Calls</div>
-                        <div>3. High-Impact Product Demos</div>
-                        <div>4. Handling Objections with Confidence</div>
-                        <div>5. Closing & Negotiating Deals</div>
-                        <div>6. Sales Process & Meeting Mastery</div>
-                        <div className="font-medium text-primary mt-2">+ 2x Practice Labs</div>
+                        <div><strong>2×4 = 8 hrs</strong></div>
+                        <div>2×2 sessions</div>
+                        <div>1 - AI Prospecting</div>
+                        <div>1 - Outbound</div>
+                        <div>2×2 - Hiring Sales & SDRs</div>
+                        <div>2×2 - Marketing Strategy & Execution</div>
+                        <div>2×2 - Practical session - full practice</div>
+                        <div className="font-medium text-primary mt-2">2×2 practical sessions</div>
+                        <div className="font-medium text-primary">3 1:1 mentoring sessions</div>
+                        <div className="font-medium text-primary">Offline practice</div>
                       </div>
                     </td>
-                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
-                      <div className="space-y-1">
-                        <div>1. AI-Powered Prospecting Playbook</div>
-                        <div>2. Building an Outbound Machine</div>
-                        <div>3. Hiring Salespeople & SDRs</div>
-                        <div>4. Marketing Strategy & Execution</div>
-                        <div>5. Full Funnel Practice Simulation</div>
-                        <div className="font-medium text-primary mt-2">+ 2x Practice Labs</div>
-                      </div>
-                    </td>
-                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
-                      <div className="space-y-1">
-                        <div>1. Strategic GTM Planning + Inbound Motion</div>
-                        <div>2. Team Management & Forecasting</div>
-                        <div>3. Onboarding & Enablement Systems</div>
-                        <div>4. RevOps & AI GTM Stack</div>
-                        <div>5. Customer Journey, CS & Expansion</div>
-                        <div>6. Advanced MEDDIC Execution</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      Deliverables & Practical Resources
-                    </td>
-                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
-                      <div className="space-y-1">
-                        <div>• ICP + UVP template</div>
-                        <div>• Value messaging framework</div>
-                        <div>• Discovery call script</div>
-                        <div>• Demo flow structure</div>
-                        <div>• Objection handling playbook</div>
-                        <div>• Negotiation checklist</div>
-                        <div>• Sales process blueprint</div>
-                        <div>• Meeting planning guide</div>
-                      </div>
-                    </td>
-                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
-                      <div className="space-y-1">
-                        <div>• AI prospecting workflow</div>
-                        <div>• Outbound cadence templates</div>
-                        <div className="font-semibold">• Hiring Playbook – Full Process</div>
-                        <div className="text-xs">(screening, interviews, simulations, scoring & more)</div>
-                        <div>• SDR hiring toolkit</div>
-                        <div>• Marketing strategy one-pager</div>
-                        <div>• Execution tracker</div>
-                        <div>• Full GTM role-play template</div>
-                      </div>
-                    </td>
-                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
-                      <div className="space-y-1">
-                        <div>• GTM strategic plan</div>
-                        <div>• SDR inbound playbook</div>
-                        <div>• Team KPI dashboard</div>
-                        <div>• Forecast template</div>
-                        <div>• Onboarding & enablement plan</div>
-                        <div>• RevOps tooling map</div>
-                        <div>• Customer journey map</div>
-                        <div>• MEDDIC sales toolkit</div>
-                      </div>
-                    </td>
+                    {/* <td className="p-4 md:p-6 text-sm text-center font-semibold text-neutral-deep-navy">
+                      $5,500 per person<br/>
+                      <span className="text-xs font-normal">+ up to 3 $700 per additional participant</span>
+                    </td> */}
                   </tr>
                   <tr>
-                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-gray-50">
-                      Offline Practice Access
-                    </td>
-                    <td className="p-4 md:p-6 text-center">
-                      <div className="flex justify-center items-center">
-                        <Check className="w-5 h-5 text-green-600 mr-2" />
-                        <span className="text-sm text-neutral-cool-gray">AI training platform</span>
+                    <td className="p-4 md:p-6 font-medium text-neutral-deep-navy bg-green-50">
+                      <div className="flex items-center">
+                        <span className="text-green-600 mr-2">🟢</span>
+                        <div>
+                          <div className="font-bold">Layer 3</div>
+                          <div className="text-sm">GTM Mastery</div>
+                        </div>
                       </div>
                     </td>
-                    <td className="p-4 md:p-6 text-center">
-                      <div className="flex justify-center items-center">
-                        <Check className="w-5 h-5 text-green-600 mr-2" />
-                        <span className="text-sm text-neutral-cool-gray">AI training platform</span>
+                    <td className="p-4 md:p-6 text-sm text-neutral-cool-gray">
+                      Build the people, systems & structure to scale revenue<br/>
+                      <strong>For growth-stage teams</strong>
+                    </td>
+                    <td className="p-4 md:p-6 text-xs md:text-sm text-neutral-cool-gray">
+                      <div className="space-y-1">
+                        <div><strong>6×2 = 12 hrs</strong></div>
+                        <div>2×2 - GTM Strategy & Inbound SDR</div>
+                        <div>2×2 - Team Management & Forecast</div>
+                        <div>2×2 - Onboarding & Enablement</div>
+                        <div>2×2 - RevOps & AI GTM</div>
+                        <div>2×2 - Post Sale Customer Journey</div>
+                        <div>Customer Success & Customer Growth</div>
+                        <div>2×2 - MEDDIC</div>
+                        <div className="font-medium text-primary mt-2">10 mentoring sessions</div>
                       </div>
                     </td>
-                    <td className="p-4 md:p-6 text-center">
-                      <div className="flex justify-center items-center">
-                        <Check className="w-5 h-5 text-green-600 mr-2" />
-                        <span className="text-sm text-neutral-cool-gray">AI training platform</span>
-                      </div>
-                    </td>
+                    {/* <td className="p-4 md:p-6 text-sm text-center font-semibold text-neutral-deep-navy">
+                      $12,000 per company<br/>
+                      <span className="text-xs font-normal">*Unlimited participants*</span>
+                    </td> */}
                   </tr>
                 </tbody>
               </table>

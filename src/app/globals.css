@@ -64,22 +64,22 @@
 }
 
 :root {
-	--background: #F3F4FA;
-	--foreground: #1F1B3A;
+	--background: #f7f5ff;
+	--foreground: #0d0026;
 
-	/* New GTM Brand Colors - Vivid Purple Palette */
-	--gtm-primary: #6C63FF;        /* Vivid periwinkle-purple for main CTAs */
-	--gtm-secondary: #5A4FCF;      /* Deeper purple for headers/hover states */
-	--gtm-accent-blue: #4C6FFF;    /* Strong blue accent for links/secondary CTAs */
-	--gtm-accent-lavender: #8A7FFF; /* Soft lavender for highlights/backgrounds */
-	--gtm-dark: #1F1B3A;          /* Almost-black indigo for text */
-	--gtm-light: #F3F4FA;         /* Gentle off-white for backgrounds */
-	
+	/* Custom Purple-Blue Theme */
+	--gtm-primary: #6046ff;        /* Main CTA purple */
+	--gtm-secondary: #4022ff;      /* Darker purple for emphasis */
+	--gtm-accent-blue: #7d63ff;    /* Vibrant accent (links/CTAs) */
+	--gtm-accent-lavender: #cbbcff; /* Soft lavender background/highlight */
+	--gtm-dark: #0d0026;           /* Near-black indigo for text */
+	--gtm-light: #f7f5ff;          /* Very light background */
+
 	/* Legacy support - mapped to new colors */
-	--gtm-primary-dark: #5A4FCF;
-	--gtm-primary-light: rgba(108, 99, 255, 0.1);
-	--gtm-text-dark: #1F1B3A;
-	--gtm-text-medium: #6b7280;
+	--gtm-primary-dark: #4022ff;
+	--gtm-primary-light: rgba(96, 70, 255, 0.1);
+	--gtm-text-dark: #0d0026;
+	--gtm-text-medium: #6b7280; /* Neutral gray for secondary text */
 }
 
 body {
