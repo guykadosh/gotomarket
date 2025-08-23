@@ -38,11 +38,11 @@ export default function TestimonialsSection() {
         {/* Quick Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+            <div key={testimonial.id} className="bg-white rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col h-64 md:h-auto">
               {testimonial.type === "video" ? (
                 // Video Testimonial
-                <div className="space-y-4">
-                  <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-100">
+                <div className="space-y-4 h-full flex flex-col">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
                     <video 
                       controls
                       className="w-full h-full object-cover"
@@ -52,7 +52,7 @@ export default function TestimonialsSection() {
                       Your browser does not support the video tag.
                     </video>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center mt-auto">
                     <div className="font-semibold text-lg" style={{ color: '#1F1B3A' }}>
                       {testimonial.author}
                     </div>
@@ -63,15 +63,17 @@ export default function TestimonialsSection() {
                 </div>
               ) : (
                 // Text Testimonial
-                <>
-                  <blockquote className="mb-3 md:mb-4 text-sm md:text-base font-medium leading-relaxed" style={{ color: '#1F1B3A' }}>
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </blockquote>
-                  <div className="text-xs md:text-sm">
+                <div className="h-full flex flex-col">
+                  <div className="flex-grow overflow-y-auto overscroll-contain mb-3 md:mb-4">
+                    <blockquote className="text-sm md:text-base font-medium leading-relaxed" style={{ color: '#1F1B3A' }}>
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </blockquote>
+                  </div>
+                  <div className="text-xs md:text-sm flex-shrink-0">
                     <div className="font-semibold" style={{ color: '#6C63FF' }}>{testimonial.author}</div>
                     <div style={{ color: '#5A4FCF' }}>{testimonial.company}</div>
                   </div>
-                </>
+                </div>
               )}
             </div>
           ))}

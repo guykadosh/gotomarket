@@ -8,72 +8,73 @@ export default function ExpertsSection() {
 			name: 'Nir Goldstein',
 			title: 'Operating Partner',
 			company: 'Greenfield Partners, Ex-VP Sales at monday.com',
-			logo: '/images/logos/greenfieldlp_logo.jpg'
+			logos: ['/images/logos/greenfieldlp_logo.jpg', '/images/logos/mondaydotcom_logo.jpg']
 		},
 		{
 			name: 'Ofri Cohen',
 			title: 'Global VP Sales',
 			company: 'Lusha',
-			logo: '/images/logos/lushadata_logo.jpg'
+			logos: ['/images/logos/lushadata_logo.jpg']
 		},
 		{
 			name: 'Einat Kadosh',
 			title: 'AI-Driven GTM & Revenue Enablement',
 			company: 'ex-monday.com, ex-Linkedin',
+			logos: ['/images/logos/mondaydotcom_logo.jpg', '/images/logos/linkedin_logo.jpg']
 		},
 		{
 			name: 'Idan Arealy',
 			title: 'RVP Sales',
 			company: 'Cynet',
-			logo: '/images/logos/cynet_security_logo.jpg'
+			logos: ['/images/logos/cynet_security_logo.jpg']
 		},
 		{
 			name: 'Amitai Weiser',
 			title: 'Director of Sales',
 			company: 'monday.com',
-			logo: '/images/logos/mondaydotcom_logo.jpg'
+			logos: ['/images/logos/mondaydotcom_logo.jpg']
 		},
 		{
 			name: 'Noa Zeldin',
 			title: 'Co-founder and CSO',
 			company: 'With, Ex-VP Sales at Zencity',
-			logo: '/images/logos/bwith_logo.jpg'
+			logos: ['/images/logos/bwith_logo.jpg', '/images/logos/zencity_logo.jpg']
 		},
 		{
 			name: 'Elad Sebban',
 			title: 'Israel Country Manager',
 			company: 'Workato',
-			logo: '/images/logos/workato_logo.jpg'
+			logos: ['/images/logos/workato_logo.jpg']
 		},
 		{
 			name: 'Eli Barenboim',
 			title: 'Regional Sales Manager',
 			company: 'Deel',
-			logo: '/images/logos/deel_logo.jpg'
+			logos: ['/images/logos/deel_logo.jpg']
 		},
 		{
 			name: 'Gilad Komorov',
 			title: 'Ex-CRO',
 			company: 'Granulate, Lightico & Feedvisor',
-			logo: '/images/logos/intel_corporation_logo.jpg'
+			logos: ['/images/logos/intel_corporation_logo.jpg', '/images/logos/lightico_logo.jpg', '/images/logos/feedvisor_logo.jpg']
 		},
 		{
 			name: 'Ruby Katz',
 			title: 'Regional Sales Manager',
 			company: 'monday.com',
-			logo: '/images/logos/mondaydotcom_logo.jpg'
+			logos: ['/images/logos/mondaydotcom_logo.jpg']
 		},
 		{
 			name: 'Joseph Fuerst',
 			title: 'Ex-VP Sales Development',
 			company: 'Sisense, WalkMe & Similarweb',
-			logo: '/images/logos/greenfieldlp_logo.jpg'
+			logos: ['/images/logos/sisense_logo.jpg', '/images/logos/walkme_logo.jpg', '/images/logos/similarweb_logo.jpg']
 		},
 		{
 			name: 'Gad Amar',
 			title: 'VP Sales',
 			company: 'Atera',
-			logo: '/images/logos/atera_networks_logo.jpg'
+			logos: ['/images/logos/atera_networks_logo.jpg']
 		},
 		// {
 		// 	name: 'Einat Etzioni',
@@ -84,25 +85,25 @@ export default function ExpertsSection() {
 			name: 'Ran Friedman',
 			title: 'Head of Business Development',
 			company: 'AI21 Labs',
-			logo: '/images/logos/ai21_logo.jpg'
+			logos: ['/images/logos/ai21_logo.jpg']
 		},
 		{
 			name: 'Yaniv Levy',
 			title: 'Global Director of Business Development',
 			company: 'Buildots',
-			logo: '/images/logos/buildots_logo.jpg'
+			logos: ['/images/logos/buildots_logo.jpg']
 		},
 		{
 			name: 'Leore Spira',
 			title: 'Director of Revenue Operations',
 			company: 'BlinkOps',
-			logo: '/images/logos/blink_ops_logo.jpg'
+			logos: ['/images/logos/blink_ops_logo.jpg']
 		},
 		{
 			name: 'Veronika Bukhman',
 			title: 'AVP Sales & Account Management',
 			company: 'Similarweb',
-			logo: '/images/logos/similarweb_logo.jpg'
+			logos: ['/images/logos/similarweb_logo.jpg']
 		},
 		// {
 		// 	name: 'Koby Freudenberger',
@@ -113,25 +114,25 @@ export default function ExpertsSection() {
 			name: 'Dana Averbouch',
 			title: 'VP Revenue Marketing',
 			company: 'Similarweb, Ex-CMO at Panaya',
-			logo: '/images/logos/similarweb_logo.jpg'
+			logos: ['/images/logos/similarweb_logo.jpg', '/images/logos/panaya_logo.jpg']
 		},
 		{
 			name: 'Liron Kaplan',
 			title: 'Revenue Growth Consultant',
 			company: 'BSELLER',
-			logo: '/images/logos/bseller_logo.jpg'
+			logos: ['/images/logos/bseller_logo.jpg']
 		},
 		{
 			name: 'Elad Stauberg',
 			title: 'Head of Deal Desk - Revenue Operations',
 			company: 'HiBob',
-			logo: '/images/logos/hibob_logo.jpg'
+			logos: ['/images/logos/hibob_logo.jpg']
 		},
 		{
 			name: 'Maayan Rahav',
 			title: 'Global Head of Customer Success, Sales Intelligence',
 			company: 'Similarweb',
-			logo: '/images/logos/similarweb_logo.jpg'
+			logos: ['/images/logos/similarweb_logo.jpg']
 		},
 	];
 
@@ -158,7 +159,7 @@ export default function ExpertsSection() {
 					<div className='overflow-y-auto' style={{ height: '400px' }}>
 						<div className='grid grid-cols-2 gap-4'>
 							{experts.map((expert) => (
-								<div key={expert.name} className='bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-300'>
+								<div key={expert.name} className='bg-white rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col'>
 									{/* Avatar Image */}
 									<div className='w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden'>
 										<Image
@@ -185,16 +186,19 @@ export default function ExpertsSection() {
 										{expert.company}
 									</p>
 
-									{/* Company Logo */}
-									{expert.logo && (
-										<div className='w-6 h-4 mx-auto flex items-center justify-center'>
-											<Image
-												src={expert.logo}
-												alt={`${expert.company} logo`}
-												width={24}
-												height={16}
-												className='max-w-full max-h-full object-contain'
-											/>
+									{/* Company Logos */}
+									{expert.logos && expert.logos.length > 0 && (
+										<div className={`mx-auto flex items-center justify-center gap-1 mt-auto ${expert.logos.length > 1 ? 'w-12 h-6' : 'w-8 h-6'}`}>
+											{expert.logos.map((logo, index) => (
+												<Image
+													key={index}
+													src={logo}
+													alt={`${expert.company} logo`}
+													width={expert.logos.length > 1 ? 24 : 32}
+													height={expert.logos.length > 1 ? 18 : 24}
+													className='max-w-full max-h-full object-contain'
+												/>
+											))}
 										</div>
 									)}
 								</div>
@@ -206,7 +210,7 @@ export default function ExpertsSection() {
 				{/* Desktop: Grid Layout */}
 				<div className='hidden md:grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6'>
 					{experts.map((expert) => (
-						<div key={expert.name} className='bg-white rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300'>
+						<div key={expert.name} className='bg-white rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col'>
 							{/* Avatar Image */}
 							<div className='w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden'>
 								<Image
@@ -233,16 +237,19 @@ export default function ExpertsSection() {
 								{expert.company}
 							</p>
 
-							{/* Company Logo */}
-							{expert.logo && (
-								<div className='w-8 h-6 mx-auto flex items-center justify-center'>
-									<Image
-										src={expert.logo}
-										alt={`${expert.company} logo`}
-										width={32}
-										height={24}
-										className='max-w-full max-h-full object-contain'
-									/>
+							{/* Company Logos */}
+							{expert.logos && expert.logos.length > 0 && (
+								<div className={`mx-auto flex items-center justify-center gap-2 mt-auto ${expert.logos.length > 1 ? 'w-16 h-8' : 'w-12 h-8'}`}>
+									{expert.logos.map((logo, index) => (
+										<Image
+											key={index}
+											src={logo}
+											alt={`${expert.company} logo`}
+											width={expert.logos.length > 1 ? 32 : 48}
+											height={expert.logos.length > 1 ? 24 : 32}
+											className='max-w-full max-h-full object-contain'
+										/>
+									))}
 								</div>
 							)}
 						</div>

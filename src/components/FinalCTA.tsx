@@ -7,7 +7,7 @@ export default function FinalCTA() {
     <section className="py-12 md:py-16" style={{backgroundColor: '#1F1B3A'}}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-8 px-4 leading-tight">
-          Ready to accelerate with GTM?
+          Ready to accelerate your revenue with our GTM programs?
         </h2>
         
         <div className="flex justify-center">

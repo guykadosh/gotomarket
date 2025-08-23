@@ -45,19 +45,33 @@ function ProgramCard({
   onToggleSyllabus,
   onToggleDeliverables,
 }: ProgramCardProps) {
-  // GTM Theme color palette for buttons
-  const btnPalette: Record<string, string> = {
-    primary: "hover:bg-opacity-90",
-    secondary: "hover:bg-opacity-90", 
-    accent: "hover:bg-opacity-90",
+  // GTM Theme color palette for different programs
+  const colorPalette: Record<string, { gradient: string; iconBg: string; iconColor: string }> = {
+    primary: {
+      gradient: 'linear-gradient(135deg, #6C63FF 0%, #5A4FCF 100%)',
+      iconBg: 'bg-white',
+      iconColor: 'text-purple-600'
+    },
+    secondary: {
+      gradient: 'linear-gradient(135deg, #4C6FFF 0%, #3B5BDB 100%)',
+      iconBg: 'bg-white',
+      iconColor: 'text-blue-600'
+    },
+    accent: {
+      gradient: 'linear-gradient(135deg, #8A7FFF 0%, #7C6DFF 100%)',
+      iconBg: 'bg-white',
+      iconColor: 'text-indigo-600'
+    }
   };
-  const buttonClass = btnPalette[accent] || btnPalette.primary;
+
+  const cardColors = colorPalette[accent] || colorPalette.primary;
+  const buttonClass = "hover:bg-opacity-90";
 
   return (
-    <Card data-testid="program-card" className="rounded-2xl shadow-lg font-poppins text-white border border-purple-300" style={{ background: 'linear-gradient(135deg, #6C63FF 0%, #5A4FCF 100%)' }}>
+    <Card data-testid="program-card" className="rounded-2xl shadow-lg font-poppins text-white border border-purple-300" style={{ background: cardColors.gradient }}>
       <CardHeader className="pb-0 text-center">
-        <div className="mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center bg-white border border-purple-200">
-          <Icon className="w-8 h-8 text-purple-600" />
+        <div className={`mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center ${cardColors.iconBg} border border-purple-200`}>
+          <Icon className={`w-8 h-8 ${cardColors.iconColor}`} />
         </div>
         <CardTitle className="text-2xl font-bold leading-tight text-white">{title}</CardTitle>
         <hr className="mt-3 border-white border-opacity-30" />
@@ -111,8 +125,8 @@ function ProgramCard({
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${expandedSyllabus ? 'rotate-180' : ''}`} />
             </div>
             <div 
-              className={`overflow-hidden transition-all duration-300 ease-out ${
-                expandedSyllabus ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              className={`transition-all duration-300 ease-out ${
+                expandedSyllabus ? 'max-h-none opacity-100 overflow-visible' : 'max-h-0 opacity-0 overflow-hidden'
               }`}
             >
               <div className="pt-2">
@@ -137,8 +151,8 @@ function ProgramCard({
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${expandedDeliverables ? 'rotate-180' : ''}`} />
             </div>
             <div 
-              className={`overflow-hidden transition-all duration-300 ease-out ${
-                expandedDeliverables ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              className={`transition-all duration-300 ease-out ${
+                expandedDeliverables ? 'max-h-none opacity-100 overflow-visible' : 'max-h-0 opacity-0 overflow-hidden'
               }`}
             >
               <div className="pt-2">

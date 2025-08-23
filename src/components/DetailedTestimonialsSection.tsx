@@ -67,7 +67,7 @@ export default function DetailedTestimonialsSection() {
         </div>
 
         {/* Testimonial Display */}
-        <div className="relative bg-white rounded-3xl p-8 md:p-12 shadow-lg" style={{ height: '600px' }}>
+        <div className="relative bg-white rounded-3xl p-6 md:p-12 shadow-lg" style={{ minHeight: '500px', height: 'auto' }}>
           <div 
             key={currentIndex}
             className="w-full text-center animate-fade-in h-full flex flex-col justify-center"
@@ -96,63 +96,102 @@ export default function DetailedTestimonialsSection() {
               </div>
             ) : (
               // Text Testimonial
-              <>
+              <div className="h-full flex flex-col">
                 {/* Quote Icon */}
-                <div className="mb-6 opacity-20" style={{ color: 'var(--gtm-text-dark)', fontSize: 'clamp(3rem, 5vw, 4rem)' }}>
+                <div className="mb-4 md:mb-6 opacity-20 flex-shrink-0" style={{ color: 'var(--gtm-text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
                   &ldquo;
                 </div>
                 
                 {/* Quote */}
-                <h3 className="font-bold mb-4 leading-tight" style={{ 
+                <h3 className="font-bold mb-3 md:mb-4 leading-tight flex-shrink-0" style={{ 
                   color: 'var(--gtm-text-dark)', 
-                  fontSize: 'clamp(1.25rem, 3vw, 1.75rem)' 
+                  fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)' 
                 }}>
                   &ldquo;{testimonials[currentIndex].quote}&rdquo;
                 </h3>
                 
-                {/* Content */}
-                <p className="leading-relaxed mb-6 max-w-4xl mx-auto overflow-hidden" style={{ 
-                  color: 'var(--gtm-text-medium)', 
-                  fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
-                  maxHeight: '220px',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 8,
-                  WebkitBoxOrient: 'vertical'
-                }}>
-                  {testimonials[currentIndex].content}
-                </p>
+                {/* Content - Scrollable on mobile */}
+                <div className="flex-grow overflow-y-auto overscroll-contain mb-4 md:mb-6 max-w-4xl mx-auto w-full" style={{ maxHeight: '300px' }}>
+                  <p className="leading-relaxed text-left md:text-center" style={{ 
+                    color: 'var(--gtm-text-medium)', 
+                    fontSize: 'clamp(0.95rem, 1.8vw, 1.125rem)'
+                  }}>
+                    {testimonials[currentIndex].content}
+                  </p>
+                </div>
                 
                 {/* Attribution */}
-                <div className="font-medium" style={{ 
+                <div className="font-medium flex-shrink-0" style={{ 
                   color: 'var(--gtm-primary)', 
                   fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' 
                 }}>
                   — {testimonials[currentIndex].title}
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="flex justify-center mt-8 space-x-3">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? 'scale-125'
-                  : 'hover:opacity-75'
-              }`}
-              style={{
-                backgroundColor: index === currentIndex 
-                  ? 'white' 
-                  : 'rgba(255, 255, 255, 0.4)'
-              }}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
+        {/* Navigation Controls */}
+        <div className="flex justify-center items-center mt-8 space-x-6">
+          {/* Previous Arrow */}
+          <button
+            onClick={() => {
+              setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+              setIsAutoPlaying(false)
+            }}
+            className="w-10 h-10 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            aria-label="Previous testimonial"
+          >
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Navigation Dots */}
+          <div className="flex space-x-3">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'scale-125'
+                    : 'hover:opacity-75'
+                }`}
+                style={{
+                  backgroundColor: index === currentIndex 
+                    ? 'white' 
+                    : 'rgba(255, 255, 255, 0.4)'
+                }}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Next Arrow */}
+          <button
+            onClick={() => {
+              setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+              setIsAutoPlaying(false)
+            }}
+            className="w-10 h-10 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            aria-label="Next testimonial"
+          >
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
