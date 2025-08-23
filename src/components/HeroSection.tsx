@@ -188,6 +188,7 @@ export default function HeroSection() {
               variant="primary"
               size="lg" 
               className="group shadow-lg w-full sm:w-auto"
+              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
             >
               Learn More
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

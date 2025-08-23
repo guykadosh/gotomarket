@@ -78,7 +78,10 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary"
               />
-              <Button className="bg-primary hover:bg-primary-dark px-6">
+              <Button 
+                className="bg-primary hover:bg-primary-dark px-6"
+                onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+              >
                 Subscribe
               </Button>
             </div>
@@ -120,10 +123,17 @@ export default function Footer() {
             Want to turn solid foundations into faster, smarter revenue?
           </h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+            >
               Talk to an Expert
             </Button>
-            <Button className="bg-white text-primary hover:bg-gray-100">
+            <Button 
+              className="bg-white text-primary hover:bg-gray-100"
+              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+            >
               Download Full Deck
             </Button>
           </div>

@@ -3,16 +3,22 @@
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      quote: "Once we rebuilt the playbooks, our qualified pipeline tripled and time-to-close dropped 28%.",
-      author: "VP Sales",
-      company: "Seed SaaS Startup"
+      id: 1,
+      type: "video",
+      videoSrc: "/videos/testimonial.mp4",
+      author: "Eitan Tsarfati",
+      title: "CEO & Co-Founder at SWAPP"
     },
     {
+      id: 2,
+      type: "text",
       quote: "We finally have a process that works—and everyone's aligned.",
       author: "Founder & CEO", 
       company: "Series A Company"
     },
     {
+      id: 3,
+      type: "text",
       quote: "Best investment in sales we've made. Real practice. Real impact.",
       author: "RevOps Lead",
       company: "Cybersecurity Startup"
@@ -31,15 +37,42 @@ export default function TestimonialsSection() {
 
         {/* Quick Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-              <blockquote className="mb-3 md:mb-4 text-sm md:text-base font-medium leading-relaxed" style={{ color: '#1F1B3A' }}>
-                &ldquo;{testimonial.quote}&rdquo;
-              </blockquote>
-              <div className="text-xs md:text-sm">
-                <div className="font-semibold" style={{ color: '#6C63FF' }}>{testimonial.author}</div>
-                <div style={{ color: '#5A4FCF' }}>{testimonial.company}</div>
-              </div>
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="bg-white rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+              {testimonial.type === "video" ? (
+                // Video Testimonial
+                <div className="space-y-4">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-100">
+                    <video 
+                      controls
+                      className="w-full h-full object-cover"
+                      poster="/images/video-poster.jpg" // Optional: add a poster image
+                    >
+                      <source src={testimonial.videoSrc} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-semibold text-lg" style={{ color: '#1F1B3A' }}>
+                      {testimonial.author}
+                    </div>
+                    <div className="text-sm" style={{ color: '#5A4FCF' }}>
+                      {testimonial.title}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                // Text Testimonial
+                <>
+                  <blockquote className="mb-3 md:mb-4 text-sm md:text-base font-medium leading-relaxed" style={{ color: '#1F1B3A' }}>
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <div className="text-xs md:text-sm">
+                    <div className="font-semibold" style={{ color: '#6C63FF' }}>{testimonial.author}</div>
+                    <div style={{ color: '#5A4FCF' }}>{testimonial.company}</div>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

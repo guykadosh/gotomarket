@@ -12,7 +12,6 @@ export default function Header() {
   const navItems = [
     { href: '#about', label: 'About' },
     { href: '#programs', label: 'Programs' },
-    { href: '#testimonials', label: 'Reviews' },
     { href: '#detailed-testimonials', label: 'Success Stories' },
     { href: '#experts', label: 'Experts' }
   ]
@@ -94,7 +93,7 @@ export default function Header() {
             <span className={`ml-3 font-semibold text-white ${
               shouldBeCompact ? 'text-lg' : 'text-xl'
             }`}>
-              GTM Accelerator
+              GTM Accelerator Program
             </span>
           </div>
 
@@ -117,8 +116,9 @@ export default function Header() {
               variant="outline"
               size="md"
               className="hover:bg-white hover:text-blue-600 transition-all duration-200"
+              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
             >
-              Book a Call
+              Let&apos;s Talk
             </Button>
           </div>
 
@@ -161,8 +161,13 @@ export default function Header() {
               </a>
             ))}
             <div className="px-4 pt-4">
-              <Button variant="primary" size="md" className="w-full">
-                Book a Call
+              <Button 
+                variant="primary" 
+                size="md" 
+                className="w-full"
+                onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+              >
+                Let&apos;s Talk
               </Button>
             </div>
           </div>

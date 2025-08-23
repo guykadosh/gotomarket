@@ -106,10 +106,16 @@ export default function FAQSection() {
             Schedule a quick call to discuss your specific situation and which program would be the best fit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-200 font-medium">
+            <button 
+              className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-200 font-medium"
+              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+            >
               Schedule a Call
             </button>
-            <button className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+            <button 
+              className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-200 font-medium"
+              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+            >
               Send us an Email
             </button>
           </div>

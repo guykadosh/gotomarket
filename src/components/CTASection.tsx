@@ -20,9 +20,10 @@ export default function CTASection() {
           <Button 
             size="lg" 
             className="bg-white text-primary hover:bg-gray-100 group"
+            onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
           >
             <Calendar className="mr-2 h-5 w-5" />
-            Book Your Strategy Call
+            Let&apos;s Talk
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           
@@ -30,6 +31,7 @@ export default function CTASection() {
             size="lg" 
             variant="outline" 
             className="border-white text-white hover:bg-white hover:text-primary"
+            onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
           >
             <Download className="mr-2 h-5 w-5" />
             Download Program Guide

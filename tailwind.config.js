@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['var(--font-poppins)', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#1E5BB8',
@@ -20,6 +23,20 @@ module.exports = {
           'cool-gray': '#6B7280',
           'deep-navy': '#0A1F44',
         },
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.4s ease-out",
+        "accordion-up": "accordion-up 0.4s ease-out",
       },
     },
   },

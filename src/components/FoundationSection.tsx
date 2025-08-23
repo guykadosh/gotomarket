@@ -22,7 +22,7 @@ export default function FoundationSection() {
   ]
 
   return (
-    <section id="about" className="py-12 md:py-20 bg-white">
+    <section id="about" className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 px-4" style={{color: '#1F1B3A'}}>
@@ -39,8 +39,8 @@ export default function FoundationSection() {
         </div>
 
         {/* Results Section */}
-        <div className="md:mb-8">
-          <h3 className="text-xl md:text-2xl font-bold text-center mb-6 md:mb-8 px-4" style={{color: '#1F1B3A'}}>
+        <div className="md-8">
+          <h3 className="text-xl md:text-2xl font-bold text-center md:mb-8 px-4" style={{color: '#1F1B3A'}}>
             Results You Can Expect:
           </h3>
           

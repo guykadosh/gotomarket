@@ -4,6 +4,7 @@ import FoundationSection from '@/components/FoundationSection'
 import WhyDifferentSection from '@/components/WhyDifferentSection'
 import GTMSupportSection from '@/components/GTMSupportSection'
 import ProgramsSection from '@/components/ProgramsSection'
+import ProgramFeaturesSection from '@/components/ProgramFeaturesSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import DetailedTestimonialsSection from '@/components/DetailedTestimonialsSection'
 import ExpertsSection from '@/components/ExpertsSection'
@@ -20,6 +21,7 @@ export default function Home() {
       <ExpertsSection />
       <WhyDifferentSection />
       {/* <GTMSupportSection /> */}
+      <ProgramFeaturesSection />
       <ProgramsSection />
       {/* <TestimonialsSection /> */}
       <DetailedTestimonialsSection />
