@@ -177,14 +177,14 @@ export default function ExpertsSection() {
 									</h3>
 
 									{/* Title */}
-									<p className='text-xs mb-1 leading-tight' style={{ color: '#5A4FCF' }}>
+									<p className='text-xs mb-1 font-semibold' style={{ color: '#5A4FCF' }}>
 										{expert.title}
 									</p>
 
 									{/* Company */}
-									<p className='text-xs font-medium leading-tight mb-2' style={{ color: '#4C6FFF' }}>
+									{/* <p className='text-xs font-medium leading-tight mb-2' style={{ color: '#4C6FFF' }}>
 										{expert.company}
-									</p>
+									</p> */}
 
 									{/* Company Logos */}
 									{expert.logos && expert.logos.length > 0 && (
