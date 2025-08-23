@@ -20,7 +20,7 @@ export default function ExpertsSection() {
 			name: 'Einat Kadosh',
 			title: 'AI-Driven GTM & Revenue Enablement',
 			company: 'ex-monday.com, ex-Linkedin',
-			logos: ['/images/logos/mondaydotcom_logo.png', '/images/logos/linkedin_logo.jpg']
+			logos: ['/images/logos/mondaydotcom_logo.png', '/images/logos/linkedin.svg']
 		},
 		{
 			name: 'Idan Arealy',
@@ -30,7 +30,7 @@ export default function ExpertsSection() {
 		},
 		{
 			name: 'Amitai Weiser',
-			title: 'Director of Sales',
+			title: 'RVP Sales',
 			company: 'monday.com',
 			logos: ['/images/logos/mondaydotcom_logo.png']
 		},

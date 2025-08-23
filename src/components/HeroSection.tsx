@@ -191,17 +191,17 @@ export default function HeroSection() {
               size="lg" 
               className="group shadow-2xl w-full sm:w-auto text-base sm:text-lg font-bold px-6 sm:px-8 py-3 sm:py-4 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-none"
               style={{
-                background: 'linear-gradient(135deg, #6C63FF 0%, #4C6FFF 50%, #8A7FFF 100%)',
+                background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%)',
                 border: '2px solid rgba(255, 255, 255, 0.8)',
-                boxShadow: '0 0 20px rgba(108, 99, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 0 20px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 color: 'white'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #5A4FCF 0%, #3D5BFF 50%, #7A6FFF 100%)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%)'
                 e.currentTarget.style.border = '2px solid rgba(255, 255, 255, 1)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #6C63FF 0%, #4C6FFF 50%, #8A7FFF 100%)'
+                e.currentTarget.style.background = 'linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%)'
                 e.currentTarget.style.border = '2px solid rgba(255, 255, 255, 0.8)'
               }}
               onClick={openModal}

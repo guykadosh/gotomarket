@@ -104,7 +104,7 @@ export default function DetailedTestimonialsSection() {
               // Text Testimonial
               <div className="h-full flex flex-col">
                 {/* Name, Title and Profile Picture Row */}
-                <div className="flex items-center mb-4 md:mb-6 flex-shrink-0">
+                <div className="flex items-center justify-center mb-4 md:mb-6 flex-shrink-0">
                   {/* Left side - Profile Picture */}
                   {testimonials[currentIndex].image && (
                     <div className="flex-shrink-0 mr-3">
@@ -121,7 +121,7 @@ export default function DetailedTestimonialsSection() {
                   )}
                   
                   {/* Right side - Name and Title */}
-                  <div className="flex-1 text-left">
+                  <div className="text-left">
                     {/* Name in Bold */}
                     <div className="font-bold mb-1" style={{ 
                       color: 'var(--gtm-text-dark)', 
