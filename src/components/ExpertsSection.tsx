@@ -38,7 +38,7 @@ export default function ExpertsSection() {
 			name: 'Noa Zeldin',
 			title: 'Co-founder and CSO',
 			company: 'With, Ex-VP Sales at Zencity',
-			logos: ['/images/logos/bwith_logo.jpg', '/images/logos/zencity_logo.png']
+			logos: ['/images/logos/zencity_logo.png']
 		},
 		{
 			name: 'Elad Sebban',
@@ -56,7 +56,7 @@ export default function ExpertsSection() {
 			name: 'Gilad Komorov',
 			title: 'Ex-CRO',
 			company: 'Granulate, Lightico & Feedvisor',
-			logos: ['/images/logos/intel_corporation_logo.jpg', '/images/logos/lightico_logo.jpg', '/images/logos/feedvisor_logo.jpg']
+			logos: ['/images/logos/opptymize.png']
 		},
 		{
 			name: 'Ruby Katz',
@@ -68,7 +68,7 @@ export default function ExpertsSection() {
 			name: 'Joseph Fuerst',
 			title: 'Ex-VP Sales Development',
 			company: 'Sisense, WalkMe & Similarweb',
-			logos: ['/images/logos/sisense_logo.jpg', '/images/logos/walkme_logo.jpg', '/images/logos/similarweb_logo.png']
+			logos: ['/images/logos/similarweb_logo.png']
 		},
 		{
 			name: 'Gad Amar',
@@ -114,7 +114,7 @@ export default function ExpertsSection() {
 			name: 'Dana Averbouch',
 			title: 'VP Revenue Marketing',
 			company: 'Similarweb, Ex-CMO at Panaya',
-			logos: ['/images/logos/similarweb_logo.png', '/images/logos/panaya_logo.jpg']
+			logos: ['/images/logos/similarweb_logo.png']
 		},
 		{
 			name: 'Liron Kaplan',
@@ -189,51 +189,17 @@ export default function ExpertsSection() {
 									{/* Company Logos */}
 									{expert.logos && expert.logos.length > 0 && (
 										<div className="mx-auto mt-auto w-full">
-											{expert.logos.map((logo, index) => {
-												// Determine if logo is wide (PNG) or square (JPG)
-												const isWide = logo.includes('.png');
-												const isLastLogo = index === expert.logos.length - 1;
-												const nextLogoIsWide = expert.logos[index + 1]?.includes('.png');
-												
-												// If current logo is square and next logo is also square, group them
-												const shouldGroupWithNext = !isWide && !nextLogoIsWide && !isLastLogo;
-												const shouldSkip = index > 0 && !isWide && !expert.logos[index - 1]?.includes('.png');
-												
-												if (shouldSkip) return null;
-												
-												return (
-													<div key={index} className={`flex items-center justify-center ${isWide ? 'mb-1' : 'mb-1'}`}>
-														{shouldGroupWithNext ? (
-															// Group two square logos
-															<div className="flex items-center justify-center gap-1">
-																<Image
-																	src={logo}
-																	alt={`${expert.company} logo`}
-																	width={18}
-																	height={18}
-																	className='object-contain'
-																/>
-																<Image
-																	src={expert.logos[index + 1]}
-																	alt={`${expert.company} logo`}
-																	width={18}
-																	height={18}
-																	className='object-contain'
-																/>
-															</div>
-														) : (
-															// Single logo (wide PNG or lone square)
-															<Image
-																src={logo}
-																alt={`${expert.company} logo`}
-																width={isWide ? 50 : 20}
-																height={isWide ? 25 : 20}
-																className='object-contain'
-															/>
-														)}
-													</div>
-												);
-											})}
+											{expert.logos.map((logo, index) => (
+												<div key={index} className="flex items-center justify-center mb-1">
+													<Image
+														src={logo}
+														alt={`${expert.company} logo`}
+														width={60}
+														height={30}
+														className='object-contain'
+													/>
+												</div>
+											))}
 										</div>
 									)}
 								</div>
@@ -243,9 +209,9 @@ export default function ExpertsSection() {
 				</div>
 
 				{/* Desktop: Grid Layout */}
-				<div className='hidden md:grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6'>
+				<div className='hidden md:grid grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6'>
 					{experts.map((expert) => (
-						<div key={expert.name} className='bg-white rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300'>
+						<div key={expert.name} className='bg-white rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col'>
 							{/* Avatar Image */}
 							<div className='w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden'>
 								<Image
@@ -263,63 +229,29 @@ export default function ExpertsSection() {
 							</h3>
 
 							{/* Title */}
-							<p className='text-sm mb-2' style={{ color: '#5A4FCF' }}>
+							<p className='text-m  mb-2' style={{ color: '#5A4FCF' }}>
 								{expert.title}
 							</p>
 
 							{/* Company */}
-							<p className='text-sm font-medium mb-2' style={{ color: '#4C6FFF' }}>
+							{/* <p className='text-sm font-medium mb-2' style={{ color: '#4C6FFF' }}>
 								{expert.company}
-							</p>
+							</p> */}
 
 							{/* Company Logos */}
 							{expert.logos && expert.logos.length > 0 && (
-								<div className="mx-auto w-full">
-									{expert.logos.map((logo, index) => {
-										// Determine if logo is wide (PNG) or square (JPG)
-										const isWide = logo.includes('.png');
-										const isLastLogo = index === expert.logos.length - 1;
-										const nextLogoIsWide = expert.logos[index + 1]?.includes('.png');
-										
-										// If current logo is square and next logo is also square, group them
-										const shouldGroupWithNext = !isWide && !nextLogoIsWide && !isLastLogo;
-										const shouldSkip = index > 0 && !isWide && !expert.logos[index - 1]?.includes('.png');
-										
-										if (shouldSkip) return null;
-										
-										return (
-											<div key={index} className={`flex items-center justify-center ${isWide ? 'mb-2' : 'mb-2'}`}>
-												{shouldGroupWithNext ? (
-													// Group two square logos
-													<div className="flex items-center justify-center gap-2">
-														<Image
-															src={logo}
-															alt={`${expert.company} logo`}
-															width={24}
-															height={24}
-															className='object-contain'
-														/>
-														<Image
-															src={expert.logos[index + 1]}
-															alt={`${expert.company} logo`}
-															width={24}
-															height={24}
-															className='object-contain'
-														/>
-													</div>
-												) : (
-													// Single logo (wide PNG or lone square)
-													<Image
-														src={logo}
-														alt={`${expert.company} logo`}
-														width={isWide ? 80 : 28}
-														height={isWide ? 40 : 28}
-														className='object-contain'
-													/>
-												)}
-											</div>
-										);
-									})}
+								<div className="mx-auto mt-auto w-full">
+									{expert.logos.map((logo, index) => (
+										<div key={index} className="flex items-center justify-center mb-2">
+											<Image
+												src={logo}
+												alt={`${expert.company} logo`}
+												width={90}
+												height={45}
+												className='object-contain'
+											/>
+										</div>
+									))}
 								</div>
 							)}
 						</div>

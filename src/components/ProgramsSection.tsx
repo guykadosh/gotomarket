@@ -95,16 +95,16 @@ function ProgramCard({
 
         {/* Who is it for */}
         <div className="flex items-start gap-3">
-          <Check className="w-5 h-5 mt-1 text-green-400" />
+          <Check className="text-green-400" style={{ width: '20px', height: '20px', marginTop: '2px', flexShrink: 0 }} />
           <div>
-            <div className="uppercase text-sm font-semibold text-purple-200">Who Is It For</div>
+            <div className="font-semibold text-white">Who Is It For</div>
             <div className="text-white" data-testid="program-audience">{audience}</div>
           </div>
         </div>
 
         {/* Live sessions */}
-        <div className="flex items-start gap-3">
-          <Check className="w-5 h-5 mt-1 text-green-400" />
+        <div className="flex items-start gap-2">
+          <Check className="w-5 h-5 mt-0.5 text-green-400" />
           <div>
             <div className="font-semibold text-white" data-testid="program-hours">{hours}</div>
             <div className="text-sm text-purple-200">(2 hours each session)</div>
@@ -112,8 +112,8 @@ function ProgramCard({
         </div>
 
         {/* Mentoring */}
-        <div className="flex items-start gap-3">
-          <Check className="w-5 h-5 mt-1 text-green-400" />
+        <div className="flex items-start gap-2">
+          <Check className="w-5 h-5 mt-0.5 text-green-400" />
           <div className="font-semibold text-white" data-testid="program-mentoring">{mentoring} 1:1 mentoring sessions</div>
         </div>
 

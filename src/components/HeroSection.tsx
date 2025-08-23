@@ -189,11 +189,31 @@ export default function HeroSection() {
             <Button 
               variant="primary"
               size="lg" 
-              className="group shadow-lg w-full sm:w-auto"
+              className="group shadow-2xl w-full sm:w-auto text-lg font-bold px-8 py-4 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-none"
+              style={{
+                background: 'linear-gradient(135deg, #6C63FF 0%, #4C6FFF 50%, #8A7FFF 100%)',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                color: 'white'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #5A4FCF 0%, #3D5BFF 50%, #7A6FFF 100%)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #6C63FF 0%, #4C6FFF 50%, #8A7FFF 100%)'
+              }}
               onClick={openModal}
             >
-              Learn More
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              {/* Animated background shimmer */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <span className="relative z-10 flex items-center">
+                {/* Rocket SVG Icon */}
+                <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
+                </svg>
+                Start Your GTM Journey
+                <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
+              </span>
             </Button>
           </div>
         </div>

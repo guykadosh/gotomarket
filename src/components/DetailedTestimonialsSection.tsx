@@ -79,6 +79,16 @@ export default function DetailedTestimonialsSection() {
             {testimonials[currentIndex].type === "video" ? (
               // Video Testimonial
               <div className="space-y-6">
+                {/* Name and Title */}
+                <div className="text-center mb-4">
+                  <div className="font-bold text-2xl mb-2" style={{ color: 'var(--gtm-text-dark)' }}>
+                    {testimonials[currentIndex].author}
+                  </div>
+                  <div className="text-lg font-medium" style={{ color: 'var(--gtm-primary)' }}>
+                    {testimonials[currentIndex].title}
+                  </div>
+                </div>
+                
                 <div className="relative w-full max-w-2xl mx-auto aspect-video rounded-lg overflow-hidden bg-gray-100">
                   <video 
                     controls
@@ -89,40 +99,54 @@ export default function DetailedTestimonialsSection() {
                     Your browser does not support the video tag.
                   </video>
                 </div>
-                <div className="text-center">
-                  <div className="font-bold text-2xl mb-2" style={{ color: 'var(--gtm-text-dark)' }}>
-                    {testimonials[currentIndex].author}
-                  </div>
-                  <div className="text-lg font-medium" style={{ color: 'var(--gtm-primary)' }}>
-                    {testimonials[currentIndex].title}
-                  </div>
-                </div>
               </div>
             ) : (
               // Text Testimonial
               <div className="h-full flex flex-col">
-                {/* Profile Picture */}
-                {testimonials[currentIndex].image && (
-                  <div className="mb-2 md:mb-3 flex justify-center flex-shrink-0">
-                    <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden">
-                      <Image
-                        src={testimonials[currentIndex].image}
-                        alt={testimonials[currentIndex].title}
-                        width={144}
-                        height={144}
-                        className="w-full h-full object-cover"
-                      />
+                {/* Name, Title and Profile Picture Row */}
+                <div className="flex items-center mb-4 md:mb-6 flex-shrink-0">
+                  {/* Left side - Profile Picture */}
+                  {testimonials[currentIndex].image && (
+                    <div className="flex-shrink-0 mr-3">
+                      <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden">
+                        <Image
+                          src={testimonials[currentIndex].image}
+                          alt={testimonials[currentIndex].title}
+                          width={96}
+                          height={96}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Right side - Name and Title */}
+                  <div className="flex-1 text-left">
+                    {/* Name in Bold */}
+                    <div className="font-bold mb-1" style={{ 
+                      color: 'var(--gtm-text-dark)', 
+                      fontSize: 'clamp(1.25rem, 2vw, 1.5rem)' 
+                    }}>
+                      {testimonials[currentIndex].title.split(',')[0]}
+                    </div>
+                    
+                    {/* Job Title */}
+                    <div className="font-medium" style={{ 
+                      color: 'var(--gtm-primary)', 
+                      fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' 
+                    }}>
+                      {testimonials[currentIndex].title.split(',').slice(1).join(',').trim()}
                     </div>
                   </div>
-                )}
+                </div>
                 
                 {/* Quote Icon */}
-                <div className="md:mb-2 opacity-20 flex-shrink-0" style={{ color: 'var(--gtm-text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                <div className="mb-1 opacity-20 flex-shrink-0" style={{ color: 'var(--gtm-text-dark)', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
                   &ldquo;
                 </div>
                 
                 {/* Quote */}
-                <h3 className="font-bold mb-3 md:mb-3 leading-tight flex-shrink-0" style={{ 
+                <h3 className="font-bold mb-3 md:mb-4 leading-tight flex-shrink-0" style={{ 
                   color: 'var(--gtm-text-dark)', 
                   fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)' 
                 }}>
@@ -130,21 +154,13 @@ export default function DetailedTestimonialsSection() {
                 </h3>
                 
                 {/* Content - Scrollable on mobile */}
-                <div className="flex-grow overflow-y-auto overscroll-contain mb-2 md:mb-3 max-w-4xl mx-auto w-full" style={{ maxHeight: '300px' }}>
+                <div className="flex-grow overflow-y-auto overscroll-contain max-w-4xl mx-auto w-full" style={{ maxHeight: '300px' }}>
                   <p className="leading-relaxed text-left md:text-center" style={{ 
                     color: 'var(--gtm-text-medium)', 
                     fontSize: 'clamp(1.1rem, 1.8vw, 1.125rem)'
                   }}>
                     {testimonials[currentIndex].content}
                   </p>
-                </div>
-                
-                {/* Attribution */}
-                <div className="font-medium flex-shrink-0" style={{ 
-                  color: 'var(--gtm-primary)', 
-                  fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' 
-                }}>
-                  — {testimonials[currentIndex].title}
                 </div>
               </div>
             )}

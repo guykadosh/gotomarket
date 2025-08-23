@@ -120,22 +120,45 @@ export default function WhyDifferentSection() {
                   borderColor: iconColors[index % iconColors.length]
                 }}
               >
-                <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-4">
-                  <div className="flex-shrink-0 mx-auto sm:mx-0">
+                {/* Icon above text for screens < 1300px */}
+                <div className="xl:hidden flex flex-col items-center space-y-4">
+                  <div className="flex-shrink-0">
                     <div 
-                      className="w-12 h-12 md:w-14 md:h-14 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center shadow-md"
+                      className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center shadow-md"
                       style={{
                         background: iconGradients[index % iconGradients.length]
                       }}
                     >
-                      <IconComponent className="w-6 h-6 md:w-7 md:h-7 lg:w-6 lg:h-6 text-white" />
+                      <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
                     </div>
                   </div>
-                  <div className="flex-1 text-center sm:text-left min-w-0">
-                    <h3 className="text-base md:text-lg lg:text-xl font-semibold mb-2 break-words" style={{color: '#1F1B3A'}}>
+                  <div className="flex-1 text-center min-w-0">
+                    <h3 className="text-base md:text-lg font-semibold mb-2 break-words" style={{color: '#1F1B3A'}}>
                       {item.title}
                     </h3>
-                    <p className="text-xs md:text-sm lg:text-base leading-relaxed break-words" style={{color: '#5A4FCF'}}>
+                    <p className="text-xs md:text-sm leading-relaxed break-words" style={{color: '#5A4FCF'}}>
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Icon beside text for screens >= 1300px */}
+                <div className="hidden xl:flex xl:flex-row items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
+                      style={{
+                        background: iconGradients[index % iconGradients.length]
+                      }}
+                    >
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="flex-1 text-left min-w-0">
+                    <h3 className="text-xl font-semibold mb-2 break-words" style={{color: '#1F1B3A'}}>
+                      {item.title}
+                    </h3>
+                    <p className="text-base leading-relaxed break-words" style={{color: '#5A4FCF'}}>
                       {item.description}
                     </p>
                   </div>
