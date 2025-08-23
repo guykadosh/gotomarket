@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Handshake, TrendingUp, Stars, Check, ChevronDown } from "lucide-react";
 import type { ComponentType } from "react";
 import { useState } from "react";
+import { useContactModal } from '@/components/ContactModalContext';
 
 // ---------------------------------------------
 // Adapted layout with GTM purple theme colors
@@ -26,6 +27,7 @@ type ProgramCardProps = {
   expandedDeliverables: boolean;
   onToggleSyllabus: (cardId: string) => void;
   onToggleDeliverables: (cardId: string) => void;
+  onOpenModal: () => void;
 };
 
 function ProgramCard({
@@ -44,6 +46,7 @@ function ProgramCard({
   expandedDeliverables,
   onToggleSyllabus,
   onToggleDeliverables,
+  onOpenModal,
 }: ProgramCardProps) {
   // GTM Theme color palette for different programs
   const colorPalette: Record<string, { gradient: string; iconBg: string; iconColor: string }> = {
@@ -178,7 +181,7 @@ function ProgramCard({
 
         <Button 
           className={`w-full text-purple-600 bg-white rounded-full py-3 text-lg mt-4 font-semibold ${buttonClass}`}
-          onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+          onClick={onOpenModal}
         >
           Let&apos;s Talk
         </Button>
@@ -191,6 +194,7 @@ function ProgramCard({
 // Main Section with lighter GTM purple theme
 // ---------------------------------------------
 export default function ProgramsSection() {
+  const { openModal } = useContactModal();
   const [expandedAccordion, setExpandedAccordion] = useState<{
     cardId: string;
     type: 'syllabus' | 'deliverables';
@@ -239,6 +243,7 @@ export default function ProgramsSection() {
             expandedDeliverables={expandedAccordion?.cardId === 'sales-foundation' && expandedAccordion?.type === 'deliverables'}
             onToggleSyllabus={handleToggleSyllabus}
             onToggleDeliverables={handleToggleDeliverables}
+            onOpenModal={openModal}
             syllabus={[
               "Define Your ICP, UVP & Value Story",
               "Mastering Discovery Calls",
@@ -270,6 +275,7 @@ export default function ProgramsSection() {
             expandedDeliverables={expandedAccordion?.cardId === 'pipeline-growth' && expandedAccordion?.type === 'deliverables'}
             onToggleSyllabus={handleToggleSyllabus}
             onToggleDeliverables={handleToggleDeliverables}
+            onOpenModal={openModal}
             syllabus={[
               "Define Your ICP, UVP & Value Story",
               "Mastering Discovery Calls",
@@ -310,6 +316,7 @@ export default function ProgramsSection() {
             expandedDeliverables={expandedAccordion?.cardId === 'end-to-end-gtm' && expandedAccordion?.type === 'deliverables'}
             onToggleSyllabus={handleToggleSyllabus}
             onToggleDeliverables={handleToggleDeliverables}
+            onOpenModal={openModal}
             syllabus={[
               "Define Your ICP, UVP & Value Story",
               "Mastering Discovery Calls",

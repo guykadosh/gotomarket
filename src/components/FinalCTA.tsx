@@ -1,8 +1,10 @@
 "use client"
 
 import { Button } from '@/components/ui/button'
+import { useContactModal } from '@/components/ContactModalContext'
 
 export default function FinalCTA() {
+  const { openModal } = useContactModal()
   return (
     <section className="py-12 md:py-16" style={{backgroundColor: '#1F1B3A'}}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -18,7 +20,7 @@ export default function FinalCTA() {
               borderColor: '#5A4FCF'
             }}
             className="w-full sm:w-auto hover:opacity-90 text-sm md:text-base px-8 py-3 border-2"
-            onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+            onClick={openModal}
           >
             Contact Us
           </Button>

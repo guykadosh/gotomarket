@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function DetailedTestimonialsSection() {
   
@@ -15,23 +16,26 @@ export default function DetailedTestimonialsSection() {
     {
       id: 2,
       type: "text",
-      title: "Founder Doing Sales",
-      quote: "It Helped Me Apply Value Selling, Not Just Hear About It",
-      content: "As a founder doing sales myself, I had read about value selling, watched some videos, but in practice I kept falling back into product pitching. I didn't really know how to make it work in real conversations. The GTM program changed that because it wasn't just theory — we worked on our actual pitch, our discovery questions, and how to tie everything back to the customer's real business problems. The mentors gave really hands-on advice — each of them specialized in something different, so I could ask specific questions depending on where I was stuck: discovery, closing, even follow-ups. I saw the change quickly. Conversations felt more natural, prospects opened up more, and I had fewer dead-end calls. It didn't make me a sales guru overnight, but it helped me sell more confidently and focus on what mattered to the buyer."
+      title: "Gil Harel, CEO, Clearitty",
+      quote: "The GTM Accelerator gave us practical frameworks for discovery calls, demos, and closing",
+      content: "As a founder leading sales, I needed more structure to scale. The GTM Accelerator gave us practical frameworks for discovery calls, demos, and closing—and the biggest impact was on our customer calls. We now follow a consistent sales process that drives better outcomes and makes our growth repeatable. Today our sales motion is sharper, more scalable, and far more effective. I strongly recommend this program to any founder-led team.",
+      image: "/images/testimonials/Gil_Harel.jpg"
     },
     {
       id: 3,
       type: "text",
-      title: "Early Sales Team",
-      quote: "It Helped Us Build a Sales Motion the Right Way, Before Bad Habits Set In",
-      content: "We were just starting to build out our sales team — had two reps and someone part-time on marketing — but everything felt a bit improvised. Deals were coming in, but we had no clear structure and we were worried about setting up things the wrong way. The GTM Accelerator helped us take a step back and really think through how we wanted our sales motion to work. Instead of just pushing for activity, we learned to map out the key stages in the process, define why each stage exists, and what activities actually matter at each point. Having different mentors specializing in sales, marketing, and customer success made it easier to connect the dots across the whole commercial flow — from generating leads to managing accounts. It gave us a much clearer foundation to build on, so we're not constantly having to fix things later. It saved us a lot of time by helping us do it properly from the start."
+      title: "Doron Sitbon, CEO, Dot Compliance",
+      quote: "We implemented structured GTM processes that aligned sales, customer success, marketing, and even hiring under one playbook",
+      content: "Even with a large sales and GTM organization, we reached a point where scaling required more than just adding people—it required a unified framework. Through the GTM Accelerator, we implemented structured GTM processes that aligned sales, customer success, marketing, and even hiring under one playbook. A major focus for us was transforming all client-facing teams to embrace value selling and MEDDIC. The program equipped our teams with the tools, training, and discipline to run consistent, value-driven conversations with customers. Today, sales, CS, and marketing are in the process of becoming fully aligned, our process is stronger, and we're scaling with clarity and confidence. I highly recommend the GTM Accelerator to any company ready to grow at scale.",
+      image: "/images/testimonials/Doron_Sitbon.jpg"
     },
     {
       id: 4,
       type: "text",
-      title: "Small Commercial Team",
-      quote: "It Helped Us Work Better Together and Prepare for Growth",
-      content: "We had a small team — a couple of sales reps, one person in marketing, and a CS rep — and like many early-stage companies, we were focused on just getting deals done. But we lacked a proper structure, and honestly, we weren't thinking enough about how to make things scalable. The program helped us step back and really build our sales motion from the ground up. With the mentors' guidance, we didn't just 'do sales,' we learned to define every step of the sales process — from prospecting to closing to handoff. We got clarity on the purpose of each stage, what activities should happen, and what to measure. The mentors were each specialized — sales, CS, marketing — and that gave us targeted advice for different parts of the customer journey. It helped us align better as a team, fix some messy parts in our process, and most importantly, set up a foundation we can actually scale as we grow."
+      title: "Arnon Nir, CEO, DreamTeam",
+      quote: "We gained access to a team of mentors, each bringing expertise across every angle of our GTM needs",
+      content: "As a company just starting to build our sales team, marketing, and GTM engine, we joined the GTM Accelerator to learn what the best practices are out there. What we found was so much more than a single consultant's advice—we gained access to a team of mentors, each bringing expertise across every angle of our GTM needs. From sales to marketing to customer success, the mentors provided practical guidance, frameworks, and support that helped us avoid common mistakes and accelerate our learning curve. Instead of figuring it out alone, we now have a structured foundation and the confidence to build our GTM machine the right way from the start.",
+      image: "/images/testimonials/Arnon_Nir.jpg"
     }
   ]
 
@@ -97,13 +101,28 @@ export default function DetailedTestimonialsSection() {
             ) : (
               // Text Testimonial
               <div className="h-full flex flex-col">
+                {/* Profile Picture */}
+                {testimonials[currentIndex].image && (
+                  <div className="mb-2 md:mb-3 flex justify-center flex-shrink-0">
+                    <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].title}
+                        width={144}
+                        height={144}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                )}
+                
                 {/* Quote Icon */}
-                <div className="mb-4 md:mb-6 opacity-20 flex-shrink-0" style={{ color: 'var(--gtm-text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                <div className="md:mb-2 opacity-20 flex-shrink-0" style={{ color: 'var(--gtm-text-dark)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
                   &ldquo;
                 </div>
                 
                 {/* Quote */}
-                <h3 className="font-bold mb-3 md:mb-4 leading-tight flex-shrink-0" style={{ 
+                <h3 className="font-bold mb-3 md:mb-3 leading-tight flex-shrink-0" style={{ 
                   color: 'var(--gtm-text-dark)', 
                   fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)' 
                 }}>
@@ -111,10 +130,10 @@ export default function DetailedTestimonialsSection() {
                 </h3>
                 
                 {/* Content - Scrollable on mobile */}
-                <div className="flex-grow overflow-y-auto overscroll-contain mb-4 md:mb-6 max-w-4xl mx-auto w-full" style={{ maxHeight: '300px' }}>
+                <div className="flex-grow overflow-y-auto overscroll-contain mb-2 md:mb-3 max-w-4xl mx-auto w-full" style={{ maxHeight: '300px' }}>
                   <p className="leading-relaxed text-left md:text-center" style={{ 
                     color: 'var(--gtm-text-medium)', 
-                    fontSize: 'clamp(0.95rem, 1.8vw, 1.125rem)'
+                    fontSize: 'clamp(1.1rem, 1.8vw, 1.125rem)'
                   }}>
                     {testimonials[currentIndex].content}
                   </p>
@@ -140,11 +159,11 @@ export default function DetailedTestimonialsSection() {
               setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
               setIsAutoPlaying(false)
             }}
-            className="w-10 h-10 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="p-2 hover:opacity-75 transition-opacity duration-300"
             aria-label="Previous testimonial"
           >
             <svg
-              className="w-5 h-5 text-white"
+              className="w-8 h-8 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -180,11 +199,11 @@ export default function DetailedTestimonialsSection() {
               setCurrentIndex((prev) => (prev + 1) % testimonials.length)
               setIsAutoPlaying(false)
             }}
-            className="w-10 h-10 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="p-2 hover:opacity-75 transition-opacity duration-300"
             aria-label="Next testimonial"
           >
             <svg
-              className="w-5 h-5 text-white"
+              className="w-8 h-8 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

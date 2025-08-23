@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
+import { useContactModal } from '@/components/ContactModalContext'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [shouldBeCompact, setShouldBeCompact] = useState(false)
+  const { openModal } = useContactModal()
 
   const navItems = [
     { href: '#about', label: 'About' },
@@ -72,29 +75,13 @@ export default function Header() {
         <div className={`flex justify-between items-center transition-all duration-300 ${shouldBeCompact ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
           <div className="flex items-center">
-            <div 
-              className={`rounded-lg flex items-center justify-center ${
-                shouldBeCompact ? 'w-10 h-10' : 'w-12 h-12'
-              }`}
-              style={isScrolled ? {
-                backgroundColor: 'rgba(138, 127, 255, 0.3)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)'
-              } : {
-                backgroundColor: 'rgba(138, 127, 255, 0.25)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.15)'
-              }}
-            >
-              <span className={`text-white font-bold ${
-                shouldBeCompact ? 'text-base' : 'text-lg'
-              }`}>GTM</span>
-            </div>
-            <span className={`ml-3 font-semibold text-white ${
-              shouldBeCompact ? 'text-lg' : 'text-xl'
-            }`}>
-              GTM Accelerator Program
-            </span>
+            <Image 
+              src="/images/logofullwhite.svg" 
+              alt="GTM Accelerator Program" 
+              width={shouldBeCompact ? 240 : 300}
+              height={shouldBeCompact ? 64 : 80}
+              className="transition-all duration-300"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -116,7 +103,7 @@ export default function Header() {
               variant="outline"
               size="md"
               className="hover:bg-white hover:text-blue-600 transition-all duration-200"
-              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+              onClick={openModal}
             >
               Let&apos;s Talk
             </Button>
@@ -165,7 +152,10 @@ export default function Header() {
                 variant="primary" 
                 size="md" 
                 className="w-full"
-                onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+                onClick={() => {
+                  setIsMenuOpen(false)
+                  openModal()
+                }}
               >
                 Let&apos;s Talk
               </Button>

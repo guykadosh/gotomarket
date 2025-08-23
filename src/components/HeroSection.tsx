@@ -2,8 +2,10 @@
 
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import { useContactModal } from '@/components/ContactModalContext'
 
 export default function HeroSection() {
+  const { openModal } = useContactModal()
   return (
     <section 
       className="relative py-16 md:py-24 flex items-center justify-center hero-background overflow-hidden"
@@ -188,7 +190,7 @@ export default function HeroSection() {
               variant="primary"
               size="lg" 
               className="group shadow-lg w-full sm:w-auto"
-              onClick={() => window.open('https://forms.monday.com/forms/d7b6a117c080ed8981fc75ee6a283745?r=euc1', '_blank')}
+              onClick={openModal}
             >
               Learn More
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

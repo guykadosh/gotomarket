@@ -8,49 +8,49 @@ export default function ExpertsSection() {
 			name: 'Nir Goldstein',
 			title: 'Operating Partner',
 			company: 'Greenfield Partners, Ex-VP Sales at monday.com',
-			logos: ['/images/logos/greenfieldlp_logo.jpg', '/images/logos/mondaydotcom_logo.jpg']
+			logos: ['/images/logos/greenfieldlp_logo.png', '/images/logos/mondaydotcom_logo.png']
 		},
 		{
 			name: 'Ofri Cohen',
 			title: 'Global VP Sales',
 			company: 'Lusha',
-			logos: ['/images/logos/lushadata_logo.jpg']
+			logos: ['/images/logos/lushadata_logo.png']
 		},
 		{
 			name: 'Einat Kadosh',
 			title: 'AI-Driven GTM & Revenue Enablement',
 			company: 'ex-monday.com, ex-Linkedin',
-			logos: ['/images/logos/mondaydotcom_logo.jpg', '/images/logos/linkedin_logo.jpg']
+			logos: ['/images/logos/mondaydotcom_logo.png', '/images/logos/linkedin_logo.jpg']
 		},
 		{
 			name: 'Idan Arealy',
 			title: 'RVP Sales',
 			company: 'Cynet',
-			logos: ['/images/logos/cynet_security_logo.jpg']
+			logos: ['/images/logos/cynet_security_logo.png']
 		},
 		{
 			name: 'Amitai Weiser',
 			title: 'Director of Sales',
 			company: 'monday.com',
-			logos: ['/images/logos/mondaydotcom_logo.jpg']
+			logos: ['/images/logos/mondaydotcom_logo.png']
 		},
 		{
 			name: 'Noa Zeldin',
 			title: 'Co-founder and CSO',
 			company: 'With, Ex-VP Sales at Zencity',
-			logos: ['/images/logos/bwith_logo.jpg', '/images/logos/zencity_logo.jpg']
+			logos: ['/images/logos/bwith_logo.jpg', '/images/logos/zencity_logo.png']
 		},
 		{
 			name: 'Elad Sebban',
 			title: 'Israel Country Manager',
 			company: 'Workato',
-			logos: ['/images/logos/workato_logo.jpg']
+			logos: ['/images/logos/workato_logo.png']
 		},
 		{
 			name: 'Eli Barenboim',
 			title: 'Regional Sales Manager',
 			company: 'Deel',
-			logos: ['/images/logos/deel_logo.jpg']
+			logos: ['/images/logos/deel_logo.png']
 		},
 		{
 			name: 'Gilad Komorov',
@@ -62,19 +62,19 @@ export default function ExpertsSection() {
 			name: 'Ruby Katz',
 			title: 'Regional Sales Manager',
 			company: 'monday.com',
-			logos: ['/images/logos/mondaydotcom_logo.jpg']
+			logos: ['/images/logos/mondaydotcom_logo.png']
 		},
 		{
 			name: 'Joseph Fuerst',
 			title: 'Ex-VP Sales Development',
 			company: 'Sisense, WalkMe & Similarweb',
-			logos: ['/images/logos/sisense_logo.jpg', '/images/logos/walkme_logo.jpg', '/images/logos/similarweb_logo.jpg']
+			logos: ['/images/logos/sisense_logo.jpg', '/images/logos/walkme_logo.jpg', '/images/logos/similarweb_logo.png']
 		},
 		{
 			name: 'Gad Amar',
 			title: 'VP Sales',
 			company: 'Atera',
-			logos: ['/images/logos/atera_networks_logo.jpg']
+			logos: ['/images/logos/atera_networks_logo.png']
 		},
 		// {
 		// 	name: 'Einat Etzioni',
@@ -85,25 +85,25 @@ export default function ExpertsSection() {
 			name: 'Ran Friedman',
 			title: 'Head of Business Development',
 			company: 'AI21 Labs',
-			logos: ['/images/logos/ai21_logo.jpg']
+			logos: ['/images/logos/ai21_logo.png']
 		},
 		{
 			name: 'Yaniv Levy',
 			title: 'Global Director of Business Development',
 			company: 'Buildots',
-			logos: ['/images/logos/buildots_logo.jpg']
+			logos: ['/images/logos/buildots_logo.png']
 		},
 		{
 			name: 'Leore Spira',
 			title: 'Director of Revenue Operations',
 			company: 'BlinkOps',
-			logos: ['/images/logos/blink_ops_logo.jpg']
+			logos: ['/images/logos/blink_ops_logo.png']
 		},
 		{
 			name: 'Veronika Bukhman',
 			title: 'AVP Sales & Account Management',
 			company: 'Similarweb',
-			logos: ['/images/logos/similarweb_logo.jpg']
+			logos: ['/images/logos/similarweb_logo.png']
 		},
 		// {
 		// 	name: 'Koby Freudenberger',
@@ -114,25 +114,25 @@ export default function ExpertsSection() {
 			name: 'Dana Averbouch',
 			title: 'VP Revenue Marketing',
 			company: 'Similarweb, Ex-CMO at Panaya',
-			logos: ['/images/logos/similarweb_logo.jpg', '/images/logos/panaya_logo.jpg']
+			logos: ['/images/logos/similarweb_logo.png', '/images/logos/panaya_logo.jpg']
 		},
 		{
 			name: 'Liron Kaplan',
 			title: 'Revenue Growth Consultant',
 			company: 'BSELLER',
-			logos: ['/images/logos/bseller_logo.jpg']
+			logos: ['/images/logos/bseller_logo.png']
 		},
 		{
 			name: 'Elad Stauberg',
 			title: 'Head of Deal Desk - Revenue Operations',
 			company: 'HiBob',
-			logos: ['/images/logos/hibob_logo.jpg']
+			logos: ['/images/logos/hibob_logo.png']
 		},
 		{
 			name: 'Maayan Rahav',
 			title: 'Global Head of Customer Success, Sales Intelligence',
 			company: 'Similarweb',
-			logos: ['/images/logos/similarweb_logo.jpg']
+			logos: ['/images/logos/similarweb_logo.png']
 		},
 	];
 
@@ -188,17 +188,52 @@ export default function ExpertsSection() {
 
 									{/* Company Logos */}
 									{expert.logos && expert.logos.length > 0 && (
-										<div className={`mx-auto flex items-center justify-center gap-1 mt-auto ${expert.logos.length > 1 ? 'w-12 h-6' : 'w-8 h-6'}`}>
-											{expert.logos.map((logo, index) => (
-												<Image
-													key={index}
-													src={logo}
-													alt={`${expert.company} logo`}
-													width={expert.logos.length > 1 ? 24 : 32}
-													height={expert.logos.length > 1 ? 18 : 24}
-													className='max-w-full max-h-full object-contain'
-												/>
-											))}
+										<div className="mx-auto mt-auto w-full">
+											{expert.logos.map((logo, index) => {
+												// Determine if logo is wide (PNG) or square (JPG)
+												const isWide = logo.includes('.png');
+												const isLastLogo = index === expert.logos.length - 1;
+												const nextLogoIsWide = expert.logos[index + 1]?.includes('.png');
+												
+												// If current logo is square and next logo is also square, group them
+												const shouldGroupWithNext = !isWide && !nextLogoIsWide && !isLastLogo;
+												const shouldSkip = index > 0 && !isWide && !expert.logos[index - 1]?.includes('.png');
+												
+												if (shouldSkip) return null;
+												
+												return (
+													<div key={index} className={`flex items-center justify-center ${isWide ? 'mb-1' : 'mb-1'}`}>
+														{shouldGroupWithNext ? (
+															// Group two square logos
+															<div className="flex items-center justify-center gap-1">
+																<Image
+																	src={logo}
+																	alt={`${expert.company} logo`}
+																	width={18}
+																	height={18}
+																	className='object-contain'
+																/>
+																<Image
+																	src={expert.logos[index + 1]}
+																	alt={`${expert.company} logo`}
+																	width={18}
+																	height={18}
+																	className='object-contain'
+																/>
+															</div>
+														) : (
+															// Single logo (wide PNG or lone square)
+															<Image
+																src={logo}
+																alt={`${expert.company} logo`}
+																width={isWide ? 50 : 20}
+																height={isWide ? 25 : 20}
+																className='object-contain'
+															/>
+														)}
+													</div>
+												);
+											})}
 										</div>
 									)}
 								</div>
@@ -210,7 +245,7 @@ export default function ExpertsSection() {
 				{/* Desktop: Grid Layout */}
 				<div className='hidden md:grid grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6'>
 					{experts.map((expert) => (
-						<div key={expert.name} className='bg-white rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col'>
+						<div key={expert.name} className='bg-white rounded-xl p-5 text-center hover:shadow-lg transition-shadow duration-300'>
 							{/* Avatar Image */}
 							<div className='w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden'>
 								<Image
@@ -239,17 +274,52 @@ export default function ExpertsSection() {
 
 							{/* Company Logos */}
 							{expert.logos && expert.logos.length > 0 && (
-								<div className={`mx-auto flex items-center justify-center gap-2 mt-auto ${expert.logos.length > 1 ? 'w-16 h-8' : 'w-12 h-8'}`}>
-									{expert.logos.map((logo, index) => (
-										<Image
-											key={index}
-											src={logo}
-											alt={`${expert.company} logo`}
-											width={expert.logos.length > 1 ? 32 : 48}
-											height={expert.logos.length > 1 ? 24 : 32}
-											className='max-w-full max-h-full object-contain'
-										/>
-									))}
+								<div className="mx-auto w-full">
+									{expert.logos.map((logo, index) => {
+										// Determine if logo is wide (PNG) or square (JPG)
+										const isWide = logo.includes('.png');
+										const isLastLogo = index === expert.logos.length - 1;
+										const nextLogoIsWide = expert.logos[index + 1]?.includes('.png');
+										
+										// If current logo is square and next logo is also square, group them
+										const shouldGroupWithNext = !isWide && !nextLogoIsWide && !isLastLogo;
+										const shouldSkip = index > 0 && !isWide && !expert.logos[index - 1]?.includes('.png');
+										
+										if (shouldSkip) return null;
+										
+										return (
+											<div key={index} className={`flex items-center justify-center ${isWide ? 'mb-2' : 'mb-2'}`}>
+												{shouldGroupWithNext ? (
+													// Group two square logos
+													<div className="flex items-center justify-center gap-2">
+														<Image
+															src={logo}
+															alt={`${expert.company} logo`}
+															width={24}
+															height={24}
+															className='object-contain'
+														/>
+														<Image
+															src={expert.logos[index + 1]}
+															alt={`${expert.company} logo`}
+															width={24}
+															height={24}
+															className='object-contain'
+														/>
+													</div>
+												) : (
+													// Single logo (wide PNG or lone square)
+													<Image
+														src={logo}
+														alt={`${expert.company} logo`}
+														width={isWide ? 80 : 28}
+														height={isWide ? 40 : 28}
+														className='object-contain'
+													/>
+												)}
+											</div>
+										);
+									})}
 								</div>
 							)}
 						</div>
